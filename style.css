@@ -1,0 +1,366 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Amélioration de la navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #f5f5f5 !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4F9CF9 !important;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(79, 156, 249, 0.2);
+    color: #4F9CF9;
+}
+
+/* Container principal */
+.main-container {
+    padding: 80px 0;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.display-4 {
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+/* Mise en forme des sections */
+section {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Boutons */
+.btn-primary {
+    background-color: #4F9CF9;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(79, 156, 249, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #3a7fd9;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(79, 156, 249, 0.5);
+}
+
+/* Carousel */
+.carousel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 40px 0;
+}
+
+.carousel-item img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Images */
+.img-fluid {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: scale(1.02);
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Formulaire de contact */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+    border-color: #4F9CF9;
+    box-shadow: 0 0 0 0.25rem rgba(79, 156, 249, 0.25);
+}
+
+/* Icônes réseaux sociaux */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #4F9CF9;
+    transform: translateY(-5px);
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Carte de contact */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: #4F9CF9;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+
+/* Style des textareas */
+textarea.form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Améliorations pour les projets */
+.project-tech {
+    display: inline-block;
+    background-color: rgba(79, 156, 249, 0.2);
+    color: #4F9CF9;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Badge pour les prix */
+.award-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Personnalisation du scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4F9CF9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a7fd9;
+}
+
+.main-container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.contact-card, .contact-info-card, .contact-social-card {
+    border-radius: 15px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover, .contact-info-card:hover, .contact-social-card:hover {
+    transform: translateY(-5px);
+}
+
+.form-floating .form-control {
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+}
+
+.form-floating .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: #86b7fe;
+}
+
+.btn-primary {
+    border-radius: 50px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #0d6efd, #0099ff);
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #0d6efd, #0099ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.social-links-large {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px;
+    width: 80px;
+}
+
+.social-link i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: #0d6efd;
+    transform: translateY(-3px);
+}
+
+.social-link:hover i {
+    transform: scale(1.2);
+}
+
+.animated {
+    opacity: 0;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adaptations pour mobile */
+@media (max-width: 768px) {
+    .main-container {
+        margin-top: 80px;
+    }
+}

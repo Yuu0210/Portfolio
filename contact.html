@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Léon Chacornac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a_propos.html">À propos</a></li>
+                    
+                    <!-- Menu déroulant "Projets" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projets
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="projets_personnels.html">Projets personnels</a></li>
+                            <li><a class="dropdown-item" href="projets_academiques.html">Projets académiques</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container main-container">
+    <h2 class="text-center display-4 mb-5 animated" style="animation-delay: 0.2s;">Contactez-moi</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8 animated" style="animation-delay: 0.4s;">
+            <div class="card shadow-lg contact-card">
+                <div class="card-body p-lg-5">
+                    <div class="mb-4 text-center">
+                        <p class="lead">Vous avez une question ou souhaitez discuter d'un projet ? N'hésitez pas à me contacter !</p>
+                    </div>
+                    
+                    <!-- Formulaire de contact -->
+                    <form id="contactForm" action="https://formsubmit.co/leonchac.leonchac@gmail.com" method="POST">
+                        <!-- Protection contre les spams -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://votre-site.com/merci.html">
+                        <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio !">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required>
+                                    <label for="name"><i class="fas fa-user me-2"></i>Nom complet</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Votre email" required>
+                                    <label for="email"><i class="fas fa-envelope me-2"></i>Adresse e-mail</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" required>
+                                <label for="subject"><i class="fas fa-heading me-2"></i>Sujet</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="message" name="message" placeholder="Votre message" style="height: 150px" required></textarea>
+                                <label for="message"><i class="fas fa-comment-alt me-2"></i>Message</label>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-paper-plane me-2"></i>Envoyer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Coordonnées et autres moyens de contact -->
+        <div class="col-lg-4 mt-4 mt-lg-0 animated" style="animation-delay: 0.6s;">
+            <div class="card shadow-lg mb-4 contact-info-card bg-dark text-white">
+                <div class="card-body">
+                    <h3 class="h5 mb-4 text-center">
+                        <i class="fas fa-address-card me-2"></i>Mes coordonnées
+                    </h3>
+                    
+                    <div class="contact-info mb-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="h6 mb-0">Email</h5>
+                                <p class="mb-0">leonchac.leonchac@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="h6 mb-0">Localisation</h5>
+                                <p class="mb-0">Arles, France</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h5 class="h6 mb-0">Formation</h5>
+                                <p class="mb-0">BUT Informatique - IUT d'Arles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Réseaux sociaux -->
+            <div class="card shadow-lg contact-social-card bg-dark text-white">
+                <div class="card-body">
+                    <h3 class="h5 mb-4 text-center">
+                        <i class="fas fa-hashtag me-2"></i>Réseaux sociaux
+                    </h3>
+                    
+                    <div class="social-links-large text-center">
+                        <a href="https://github.com/Yuu0210" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://instagram.com/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://x.com/ChacornacL22604" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-3 mt-auto">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/Yuu0210" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/leon.chac?igsh=MW54a2Z4Mmh3NDltcg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ChacornacL22604" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="mt-3">© 2025 Léon Chacornac - Tous droits réservés</p>
+    </div>
+</footer>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
