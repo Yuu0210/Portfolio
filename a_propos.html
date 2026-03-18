@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>À propos - Portfolio</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Léon Chacornac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a_propos.html">À propos</a></li>
+                    
+                    <!-- Menu déroulant "Projets" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projets
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="projets_personnels.html">Projets personnels</a></li>
+                            <li><a class="dropdown-item" href="projets_academiques.html">Projets académiques</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<div class="container main-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center animated" style="animation-delay: 0.2s;">
+            <h2 class="display-4 mb-4">À Propos de Moi</h2>
+            <div class="mb-4">
+                <img src="Image/leonC_150724 (1).jpg" class="img-fluid rounded-circle" alt="Photo de profil" style="max-width: 200px;">
+            </div>
+            <p class="lead">
+                Je m'appelle Léon Chacornac, j'ai 18 ans et je suis étudiant en informatique. Passionné par le numérique, j'aime aussi les jeux vidéo, le sport (notamment le volleyball), ainsi que la photo et le cinéma.
+                J'aime créer, apprendre et partager mes connaissances à travers mes projets.
+            </p>
+            
+            <!-- Section compétences -->
+            <div class="mt-5 animated" style="animation-delay: 0.4s;">
+                <h3 class="mb-4">Mes compétences</h3>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="p-4 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                            <i class="fas fa-code fa-3x mb-3" style="color: #4F9CF9;"></i>
+                            <h4>Développement</h4>
+                            <p>Python, C++, HTML/CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="p-4 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                            <i class="fas fa-gamepad fa-3x mb-3" style="color: #4F9CF9;"></i>
+                            <h4>Game Design</h4>
+                            <p>Godot, Game Development</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="p-4 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                            <i class="fas fa-images fa-3x mb-3" style="color: #4F9CF9;"></i>
+                            <h4>Design</h4>
+                            <p>Création graphique, UI/UX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section CV -->
+    <div class="row align-items-center mt-5 animated" style="animation-delay: 0.6s;">
+        <div class="col-md-6 text-center">
+            <img src="Image/CV.png" class="img-fluid rounded" alt="Illustration CV" style="max-width: 80%;">
+        </div>
+        <div class="col-md-6 text-center">
+            <h3 class="mb-4">Mon parcours</h3>
+            <p>
+                Actuellement en formation BUT Informatique à l'IUT d'Arles, je développe mes compétences en programmation et dans différents domaines de l'informatique. Je suis particulièrement intéressé par le développement de jeux et la création d'applications innovantes.
+            </p>
+            <a href="Image/Copie de CV CHACORNAC Léon.pdf" class="btn btn-primary btn-lg mt-3" download>
+                <i class="fas fa-download me-2"></i>Télécharger mon CV
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-3 mt-auto">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/Yuu0210" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/leon.chac?igsh=MW54a2Z4Mmh3NDltcg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ChacornacL22604" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="mt-3">© 2025 Léon Chacornac - Tous droits réservés</p>
+    </div>
+</footer>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

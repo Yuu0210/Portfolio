@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projets Académiques - Portfolio</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Léon Chacornac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a_propos.html">À propos</a></li>
+                    
+                    <!-- Menu déroulant "Projets" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projets
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="projets_personnels.html">Projets personnels</a></li>
+                            <li><a class="dropdown-item" href="projets_academiques.html">Projets académiques</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<div class="container main-container">
+    <h2 class="text-center display-4 mb-5 animated" style="animation-delay: 0.2s;">Projets Académiques</h2>
+
+    <!-- Agenda numérique -->
+    <section class="my-5 animated" style="animation-delay: 0.4s;">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <span class="award-badge">
+                    <i class="fas fa-laptop-code me-2"></i>Projet BUT S1
+                </span>
+                <h3 class="mb-3">Agenda numérique</h3>
+                <p>
+                    Lors d'une séance d'apprentissage et d'évaluation, on nous a donné comme sujet de créer un agenda numérique fonctionnel qui suivait certaines caractéristiques précises.
+                </p>
+                <p>
+                    Cet agenda devait permettre de <b>gérer efficacement des événements</b> avec plusieurs fonctionnalités essentielles telles que :
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-plus-circle me-2"></i>Créer un événement</li>
+                    <li><i class="fas fa-trash-alt me-2"></i>Supprimer un événement</li>
+                    <li><i class="fas fa-file-export me-2"></i>Exporter et enregistrer les événements</li>
+                </ul>
+                <p>
+                    J'ai développé cette application en utilisant le langage C++, ce qui m'a permis d'approfondir mes connaissances en programmation orientée objet et en gestion de données.
+                </p>
+                <div class="d-flex mt-4">
+                    <span class="project-tech me-2">
+                        <i class="fab fa-cuttlefish me-1"></i>C++
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <img src="Image/Agenda.png" class="img-fluid rounded mx-auto d-block" alt="Agenda numérique">
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculatrice Polynôme -->
+    <section class="my-5 animated" style="animation-delay: 0.6s;">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <span class="award-badge">
+                    <i class="fas fa-calculator me-2"></i>Projet BUT S2
+                </span>
+                <h3 class="mb-3">Calculatrice Polynôme</h3>
+                <p>
+                    En début de deuxième semestre, nous avons réalisé une calculatrice spécialisée dans la manipulation de polynômes mathématiques.
+                </p>
+                <p>
+                    Cette application devait permettre de <b>gérer et calculer des expressions polynomiales</b> avec plusieurs fonctionnalités :
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-plus me-2"></i>Ajouter des polynômes</li>
+                    <li><i class="fas fa-equals me-2"></i>Faire la somme de plusieurs polynômes</li>
+                    <li><i class="fas fa-save me-2"></i>Stocker les résultats à un indice donné</li>
+                </ul>
+                <p>
+                    Ce projet m'a permis d'approfondir mes compétences en C++ tout en appliquant des concepts mathématiques avancés dans le domaine de la programmation.
+                </p>
+                <div class="d-flex mt-4">
+                    <span class="project-tech me-2">
+                        <i class="fab fa-cuttlefish me-1"></i>C++
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0 order-lg-1">
+                <img src="Image/Poly.png" class="img-fluid rounded mx-auto d-block" alt="Calculatrice Polynôme">
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Restaurants S4 -->
+    <section class="my-5 animated" style="animation-delay: 0.65s; border: 1px solid rgba(34,197,94,0.2); position: relative; overflow: hidden;">
+        <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(34,197,94,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+
+        <div class="row align-items-start">
+            <div class="col-lg-6">
+                <span class="award-badge" style="background:linear-gradient(45deg,#22c55e,#16a34a);">
+                    <i class="fas fa-map-marker-alt me-2"></i>Projet BUT S3
+                </span>
+                <h3 class="mb-2">Application Recherche de Restaurants</h3>
+                <p style="font-size:.95rem;color:#22c55e;font-weight:600;margin-bottom:14px;">
+                    Cartographie interactive des restaurants à proximité
+                </p>
+                <p>
+                    Application web développée en <b>JavaScript avec Webpack</b> permettant de trouver
+                    les restaurants autour d'une adresse donnée. L'utilisateur saisit n'importe quelle adresse
+                    française et l'application affiche une <b>carte interactive Leaflet</b> avec tous les
+                    restaurants dans un rayon de 2 km.
+                </p>
+                <p>
+                    Le projet suit une <b>architecture orientée objet</b> stricte avec trois classes : <code style="color:#22c55e;background:rgba(34,197,94,0.1);padding:1px 6px;border-radius:4px;">Restaurant</code>,
+                    <code style="color:#22c55e;background:rgba(34,197,94,0.1);padding:1px 6px;border-radius:4px;">APIService</code> et <code style="color:#22c55e;background:rgba(34,197,94,0.1);padding:1px 6px;border-radius:4px;">ApplicationRestaurants</code>.
+                    Les données sont récupérées en temps réel via deux APIs publiques.
+                </p>
+
+                <ul class="feature-list mb-3">
+                    <li><i class="fas fa-map me-2" style="color:#22c55e"></i>Carte interactive avec marqueurs Leaflet</li>
+                    <li><i class="fas fa-search-location me-2" style="color:#4F9CF9"></i>Géocodage via l'API Adresse (data.gouv.fr)</li>
+                    <li><i class="fas fa-utensils me-2" style="color:#f59e0b"></i>Données restaurants via Overpass API (OSM)</li>
+                    <li><i class="fas fa-list me-2" style="color:#a78bfa"></i>Affichage : nom, cuisine, horaires, adresse</li>
+                    <li><i class="fas fa-mobile-alt me-2" style="color:#ec4899"></i>Interface responsive (desktop & mobile)</li>
+                </ul>
+
+                <!-- Architecture badges -->
+                <div class="foxcorrector-arch mb-3">
+                    <span class="arch-layer" style="background:rgba(34,197,94,0.15); border-color:rgba(34,197,94,0.4);">
+                        <i class="fas fa-map-marked-alt me-1"></i>Leaflet UI
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(79,156,249,0.15); border-color:rgba(79,156,249,0.4);">
+                        <i class="fas fa-cogs me-1"></i>APIService
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.4);">
+                        <i class="fas fa-cloud me-1"></i>OSM / Overpass
+                    </span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="project-tech"><i class="fab fa-js me-1"></i>JavaScript ES6+</span>
+                    <span class="project-tech"><i class="fas fa-box me-1"></i>Webpack</span>
+                    <span class="project-tech"><i class="fas fa-map me-1"></i>Leaflet.js</span>
+                    <span class="project-tech"><i class="fas fa-cloud me-1"></i>Overpass API</span>
+                    <span class="project-tech"><i class="fas fa-map-pin me-1"></i>API Adresse</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <button class="btn btn-sm" style="background:#22c55e;color:#000;font-weight:600;" onclick="openRestoDemo()">
+                        <i class="fas fa-play me-2"></i>Tester la démo
+                    </button>
+                    <button class="btn btn-outline-light btn-sm" onclick="toggleRestoCode()" id="restoCodeBtn">
+                        <i class="fas fa-code me-2"></i>Voir le code source
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: architecture tree + API info -->
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="foxcorrector-card">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-folder-open me-2" style="color:#22c55e"></i>
+                        <span>Architecture — OOP JavaScript</span>
+                    </div>
+                    <div class="foxcorrector-tree">
+                        <div class="tree-item tree-root"><i class="fas fa-folder" style="color:#22c55e"></i> src/</div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> index.js <span class="tree-desc">— Point d'entrée Webpack</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> style.css <span class="tree-desc">— Styles + import Leaflet</span></div>
+                        <div class="tree-item tree-l2">
+                            <i class="fas fa-file-code" style="color:#22c55e"></i> app.js
+                            <span class="tree-badge" style="background:rgba(34,197,94,0.2);color:#22c55e">3 classes</span>
+                        </div>
+                        <div class="tree-item tree-l2" style="margin-left:40px;"><i class="fas fa-cube" style="color:#f59e0b"></i> <code style="color:#f59e0b">Restaurant</code> <span class="tree-desc">— Modèle de donnée</span></div>
+                        <div class="tree-item tree-l2" style="margin-left:40px;"><i class="fas fa-cube" style="color:#4F9CF9"></i> <code style="color:#4F9CF9">APIService</code> <span class="tree-desc">— Géocodage + OSM</span></div>
+                        <div class="tree-item tree-l2" style="margin-left:40px;"><i class="fas fa-cube" style="color:#a78bfa"></i> <code style="color:#a78bfa">ApplicationRestaurants</code> <span class="tree-desc">— Contrôleur + carte</span></div>
+                        <div class="tree-item tree-root" style="margin-top:8px"><i class="fas fa-file-alt" style="color:#888"></i> webpack.config.js</div>
+                        <div class="tree-item tree-root"><i class="fas fa-file-alt" style="color:#888"></i> package.json</div>
+                    </div>
+                </div>
+
+                <!-- API info box -->
+                <div class="foxcorrector-card mt-3">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-plug me-2" style="color:#22c55e"></i>
+                        <span>APIs utilisées — Données publiques</span>
+                    </div>
+                    <div style="padding:12px 16px;font-size:.82rem;font-family:'Courier New',monospace;color:#ccc;display:flex;flex-direction:column;gap:10px;">
+                        <div>
+                            <div style="color:#6e7681;margin-bottom:4px">// 1. Géocodage d'adresse</div>
+                            <div style="color:#a5d6ff">GET api-adresse.data.gouv.fr/search/</div>
+                            <div style="color:#6e7681">?q=Paris&limit=1</div>
+                            <div style="margin-top:4px;color:#7ee787">→ { lat, lon, label }</div>
+                        </div>
+                        <div>
+                            <div style="color:#6e7681;margin-bottom:4px">// 2. Restaurants à proximité</div>
+                            <div style="color:#a5d6ff">GET overpass-api.de/api/interpreter</div>
+                            <div style="color:#6e7681">node["amenity"="restaurant"](around:2000)</div>
+                            <div style="margin-top:4px;color:#7ee787">→ { elements[] } — max 20 résultats</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code viewer -->
+        <div id="restoCodeViewer" style="display:none;margin-top:24px">
+            <div class="foxcorrector-card">
+                <div class="foxcorrector-card-header d-flex justify-content-between align-items-center">
+                    <div><i class="fas fa-code me-2" style="color:#22c55e"></i><span>Code source</span></div>
+                    <div class="code-tab-bar">
+                        <button class="code-tab active" onclick="showRestoCode('restaurant',this)">Restaurant</button>
+                        <button class="code-tab" onclick="showRestoCode('apiservice',this)">APIService</button>
+                        <button class="code-tab" onclick="showRestoCode('app',this)">ApplicationRestaurants</button>
+                        <button class="code-tab" onclick="showRestoCode('index',this)">index.js</button>
+                    </div>
+                </div>
+                <div class="code-display">
+                    <pre class="fox-code"><code id="restoCodeText"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ MODAL Restaurant ════════════════════════════════════════ -->
+    <div id="restoDemoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+        <div style="width:min(960px,96vw);background:#1a1c1f;border-radius:14px;overflow:hidden;border:1px solid rgba(34,197,94,0.25);box-shadow:0 30px 80px rgba(0,0,0,.7);display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#0d0e10;border-bottom:1px solid rgba(255,255,255,.07);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:18px;">🍽️</span>
+                    <span style="font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:#22c55e;">Recherche de Restaurants</span>
+                    <span style="font-family:'Courier New',monospace;font-size:11px;color:#5c6370;">— Démo interactive</span>
+                </div>
+                <button onclick="closeRestoDemo()" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#aaa;width:30px;height:30px;border-radius:7px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;">×</button>
+            </div>
+            <iframe id="restoDemoFrame" src="restaurant_demo.html" style="width:100%;height:600px;border:none;display:block;" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <!-- FoxCorrector -->
+    <section class="my-5 animated foxcorrector-section" style="animation-delay: 0.7s; border: 1px solid rgba(241,111,4,0.2); position: relative; overflow: hidden;">
+        <div class="foxcorrector-glow"></div>
+        <div class="row align-items-start">
+            <div class="col-lg-6">
+                <span class="award-badge" style="background:linear-gradient(45deg,#F16F04,#c0392b);">
+                    <i class="fas fa-laptop-code me-2"></i>Projet BUT S3/4
+                </span>
+                <h3 class="mb-2">FoxCorrector</h3>
+                <p class="foxcorrector-tagline">Outil de correction automatisée de scripts Bash par IA</p>
+                <p>
+                    <b>FoxCorrector</b> est une application de bureau développée en Python permettant aux enseignants de
+                    <b>corriger automatiquement des scripts Bash</b> soumis par leurs étudiants. Elle exécute chaque script dans un
+                    environnement Docker isolé et sécurisé, puis analyse le résultat selon des critères personnalisables.
+                </p>
+                <p>
+                    L'application dispose d'une interface graphique complète avec authentification utilisateur, tableau de bord de statistiques,
+                    configuration des exercices (mots-clés attendus, structures de code), <b>détection de plagiat</b>, et export des résultats en PDF/CSV.
+                </p>
+
+                <!-- Architecture badges -->
+                <div class="foxcorrector-arch mb-3">
+                    <span class="arch-layer" style="background:rgba(241,111,4,0.15); border-color:rgba(241,111,4,0.4);">
+                        <i class="fas fa-paint-brush me-1"></i>UI (customtkinter)
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(40,167,69,0.15); border-color:rgba(40,167,69,0.4);">
+                        <i class="fas fa-cogs me-1"></i>Business Logic
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(79,156,249,0.15); border-color:rgba(79,156,249,0.4);">
+                        <i class="fab fa-docker me-1"></i>Docker Sandbox
+                    </span>
+                </div>
+
+                <!-- Features list -->
+                <ul class="feature-list mb-3">
+                    <li><i class="fas fa-shield-alt me-2" style="color:#28A745"></i>Exécution isolée dans Docker (mémoire + CPU limités)</li>
+                    <li><i class="fas fa-search me-2" style="color:#4F9CF9"></i>Analyse par mots-clés & structures de code</li>
+                    <li><i class="fas fa-copy me-2" style="color:#F16F04"></i>Détection automatique de plagiat</li>
+                    <li><i class="fas fa-file-pdf me-2" style="color:#dc3545"></i>Export des résultats en PDF / CSV</li>
+                    <li><i class="fas fa-users me-2" style="color:#70179A"></i>Multi-utilisateurs avec historique</li>
+                </ul>
+
+                <!-- Tech stack -->
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="project-tech"><i class="fab fa-python me-1"></i>Python</span>
+                    <span class="project-tech"><i class="fab fa-docker me-1"></i>Docker</span>
+                    <span class="project-tech"><i class="fas fa-desktop me-1"></i>CustomTkinter</span>
+                    <span class="project-tech"><i class="fas fa-lock me-1"></i>Obfuscation</span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <button class="btn btn-warning btn-sm" onclick="openFoxDemo()">
+                        <i class="fas fa-play me-2"></i>Tester la démo
+                    </button>
+                    <button class="btn btn-outline-warning btn-sm" onclick="toggleCodeViewer()" id="codeToggleBtn">
+                        <i class="fas fa-code me-2"></i>Voir le code source
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right col: structure tree + mini preview -->
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="foxcorrector-card">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-folder-open me-2" style="color:#F16F04"></i>
+                        <span>Architecture du projet</span>
+                    </div>
+                    <div class="foxcorrector-tree">
+                        <div class="tree-item tree-root"><i class="fas fa-folder" style="color:#F16F04"></i> src/</div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#4F9CF9"></i> ui/
+                            <span class="tree-badge">Interface</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> app.py <span class="tree-desc">— App principale & auth</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-folder" style="color:#aaa"></i> pages/ <span class="tree-desc">— Dashboard, Correction, Stats...</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-folder" style="color:#aaa"></i> components/ <span class="tree-desc">— Sidebar, Tutorial</span></div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#28A745"></i> business/
+                            <span class="tree-badge" style="background:rgba(40,167,69,0.2); color:#28A745">Logique</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> Exercise.py <span class="tree-desc">— Exec Docker + analyse</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> Correction.py <span class="tree-desc">— Critères de correction</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> Evaluation.py <span class="tree-desc">— Gestion des évals</span></div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#dc3545"></i> persistence/
+                            <span class="tree-badge" style="background:rgba(220,53,69,0.2); color:#dc3545">Données</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> FoxStorage.py <span class="tree-desc">— Stockage obfusqué</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> FoxObfuscator.py <span class="tree-desc">— Chiffrement des fichiers</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code viewer (collapsed by default) -->
+        <div id="codeViewer" style="display:none; margin-top: 30px;">
+            <div class="foxcorrector-card">
+                <div class="foxcorrector-card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-code me-2" style="color:#F16F04"></i>
+                        <span>Code source</span>
+                    </div>
+                    <div class="code-tab-bar">
+                        <button class="code-tab active" onclick="showCode('app')">app.py</button>
+                        <button class="code-tab" onclick="showCode('correction')">Correction.py</button>
+                        <button class="code-tab" onclick="showCode('exercise')">Exercise.py</button>
+                        <button class="code-tab" onclick="showCode('dashboard')">dashboard_page.py</button>
+                    </div>
+                </div>
+                <div class="code-display">
+                    <pre id="codeContent" class="fox-code"><code id="codeText"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LoL Typing Test S3 -->
+    <section class="my-5 animated" style="animation-delay: 0.85s; border: 1px solid rgba(200,155,60,0.2); position: relative; overflow: hidden;">
+        <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,155,60,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+        <div style="position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;background:radial-gradient(circle,rgba(74,144,217,0.05) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+
+        <div class="row align-items-start">
+            <div class="col-lg-6">
+                <span class="award-badge" style="background:linear-gradient(45deg,#c89b3c,#a07840);">
+                    <i class="fas fa-keyboard me-2"></i>Projet BUT S4
+                </span>
+                <h3 class="mb-2">LoL Typing Test</h3>
+                <p style="font-size:.95rem;color:#c89b3c;font-weight:600;margin-bottom:14px;">
+                    Jeu de dactylographie sur le thème League of Legends
+                </p>
+                <p>
+                    Application web de <b>typing test</b> développée en <b>React avec Vite</b>, inspirée de l'univers
+                    de League of Legends. Le joueur doit retranscrire un texte tiré du lore de Yunara
+                    aussi vite que possible en 60 secondes, avec un retour visuel en temps réel
+                    caractère par caractère.
+                </p>
+                <p>
+                    Le projet repose sur un <b>pattern de state management</b> avancé via <code style="color:#c89b3c;background:rgba(200,155,60,0.1);padding:1px 6px;border-radius:4px;">useReducer</code>
+                    et le <b>Context API</b> de React, séparant proprement la logique métier de l'affichage
+                    en plusieurs composants spécialisés.
+                </p>
+
+                <ul class="feature-list mb-3">
+                    <li><i class="fas fa-font me-2" style="color:#c89b3c"></i>Coloration lettre par lettre en temps réel</li>
+                    <li><i class="fas fa-stopwatch me-2" style="color:#e74c3c"></i>Timer 60s avec alerte visuelle à 20s et 10s</li>
+                    <li><i class="fas fa-tachometer-alt me-2" style="color:#4a90d9"></i>Calcul du WPM à la fin de chaque partie</li>
+                    <li><i class="fas fa-check-circle me-2" style="color:#2ecc71"></i>Détection mots corrects / incorrects (soulignement)</li>
+                    <li><i class="fas fa-history me-2" style="color:#a78bfa"></i>Historique des parties dans le state global</li>
+                </ul>
+
+                <!-- Architecture badges -->
+                <div class="foxcorrector-arch mb-3">
+                    <span class="arch-layer" style="background:rgba(200,155,60,0.15); border-color:rgba(200,155,60,0.4);">
+                        <i class="fab fa-react me-1"></i>React UI
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(74,144,217,0.15); border-color:rgba(74,144,217,0.4);">
+                        <i class="fas fa-cogs me-1"></i>useReducer
+                    </span>
+                    <span class="arch-arrow">→</span>
+                    <span class="arch-layer" style="background:rgba(46,204,113,0.15); border-color:rgba(46,204,113,0.4);">
+                        <i class="fas fa-share-alt me-1"></i>Context API
+                    </span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="project-tech"><i class="fab fa-react me-1"></i>React</span>
+                    <span class="project-tech"><i class="fas fa-bolt me-1"></i>Vite</span>
+                    <span class="project-tech"><i class="fas fa-code-branch me-1"></i>useReducer</span>
+                    <span class="project-tech"><i class="fas fa-share-alt me-1"></i>Context API</span>
+                    <span class="project-tech"><i class="fab fa-js me-1"></i>JavaScript</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <button class="btn btn-sm" style="background:#c89b3c;color:#010a13;font-weight:700;" onclick="openLolDemo()">
+                        <i class="fas fa-gamepad me-2"></i>Jouer à la démo
+                    </button>
+                    <button class="btn btn-outline-light btn-sm" onclick="toggleLolCode()" id="lolCodeBtn">
+                        <i class="fas fa-code me-2"></i>Voir le code source
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: architecture tree -->
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="foxcorrector-card">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-folder-open me-2" style="color:#c89b3c"></i>
+                        <span>Architecture — React / Context</span>
+                    </div>
+                    <div class="foxcorrector-tree">
+                        <div class="tree-item tree-root"><i class="fas fa-folder" style="color:#c89b3c"></i> src/</div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> main.jsx <span class="tree-desc">— Point d'entrée Vite</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#c89b3c"></i> App.jsx <span class="tree-desc">— GameProvider + layout</span></div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#4a90d9"></i> context/
+                            <span class="tree-badge" style="background:rgba(74,144,217,0.2);color:#4a90d9">State</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> GameContext.jsx <span class="tree-desc">— Provider + hooks</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> gameReducer.js <span class="tree-desc">— Actions & reducer</span></div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#2ecc71"></i> components/
+                            <span class="tree-badge" style="background:rgba(46,204,113,0.2);color:#2ecc71">UI</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> Timer.jsx <span class="tree-desc">— Compte à rebours 60s</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> WordDisplay.jsx <span class="tree-desc">— Rendu lettre par lettre</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> InputArea.jsx <span class="tree-desc">— Saisie + validation mot</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> Results.jsx <span class="tree-desc">— Stats finales + rejouer</span></div>
+                    </div>
+                </div>
+
+                <!-- State flow box -->
+                <div class="foxcorrector-card mt-3">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-project-diagram me-2" style="color:#4a90d9"></i>
+                        <span>Flux des actions — gameReducer</span>
+                    </div>
+                    <div style="padding:12px 16px;font-size:.82rem;font-family:'Courier New',monospace;color:#ccc;display:flex;flex-direction:column;gap:6px;">
+                        <div style="color:#6e7681">// Actions dispatched au fil du jeu</div>
+                        <div><span style="color:#c89b3c">START_TIMER</span> <span style="color:#6e7681">→ premier caractère saisi</span></div>
+                        <div><span style="color:#4a90d9">TICK</span>        <span style="color:#6e7681">→ setInterval chaque seconde</span></div>
+                        <div><span style="color:#2ecc71">NEXT_WORD</span>   <span style="color:#6e7681">→ Espace / Entrée pressé</span></div>
+                        <div><span style="color:#e74c3c">END_GAME</span>    <span style="color:#6e7681">→ timer = 0 ou dernier mot</span></div>
+                        <div><span style="color:#a78bfa">RESTART</span>     <span style="color:#6e7681">→ reset state, garde history[]</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code viewer -->
+        <div id="lolCodeViewer" style="display:none;margin-top:24px">
+            <div class="foxcorrector-card">
+                <div class="foxcorrector-card-header d-flex justify-content-between align-items-center">
+                    <div><i class="fas fa-code me-2" style="color:#c89b3c"></i><span>Code source</span></div>
+                    <div class="code-tab-bar">
+                        <button class="code-tab active" onclick="showLolCode('reducer',this)">gameReducer.js</button>
+                        <button class="code-tab" onclick="showLolCode('context',this)">GameContext.jsx</button>
+                        <button class="code-tab" onclick="showLolCode('worddisplay',this)">WordDisplay.jsx</button>
+                        <button class="code-tab" onclick="showLolCode('input',this)">InputArea.jsx</button>
+                        <button class="code-tab" onclick="showLolCode('results',this)">Results.jsx</button>
+                    </div>
+                </div>
+                <div class="code-display">
+                    <pre class="fox-code"><code id="lolCodeText"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ MODAL LoL Typing Test ═══════════════════════════════════ -->
+    <div id="lolDemoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.9);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+        <div style="width:min(820px,95vw);background:#010a13;border-radius:14px;overflow:hidden;border:1px solid rgba(200,155,60,0.3);box-shadow:0 30px 80px rgba(0,0,0,.8);display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#060c14;border-bottom:1px solid rgba(200,155,60,0.15);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:18px;">⚔️</span>
+                    <span style="font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:#c89b3c;">LoL Typing Test</span>
+                    <span style="font-family:'Courier New',monospace;font-size:11px;color:#5c6370;">— Démo jouable</span>
+                </div>
+                <button onclick="closeLolDemo()" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#aaa;width:30px;height:30px;border-radius:7px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;">×</button>
+            </div>
+            <iframe id="lolDemoFrame" src="lol_typing_demo.html" style="width:100%;height:600px;border:none;display:block;" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <!-- Application Petit Prince S4 -->
+    <section class="my-5 animated" style="animation-delay: 0.9s; border: 1px solid rgba(79,156,249,0.2); position: relative; overflow: hidden;">
+        <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(79,156,249,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+
+        <div class="row align-items-start">
+            <div class="col-lg-6">
+                <span class="award-badge" style="background:linear-gradient(45deg,#4F9CF9,#007AFF);">
+                    <i class="fas fa-mobile-alt me-2"></i>Projet BUT S4
+                </span>
+                <h3 class="mb-2">Application Mobile — Le Petit Prince</h3>
+                <p style="font-size:.95rem;color:#4F9CF9;font-weight:600;margin-bottom:14px;">
+                    Application React Native / Expo pour une école primaire
+                </p>
+                <p>
+                    Application mobile développée en <b>React Native avec Expo Router</b> pour l'école "Le Petit Prince".
+                    Elle permet aux parents et enseignants de consulter les <b>actualités de l'école</b>, les galeries photos,
+                    et le calendrier des événements à venir.
+                </p>
+                <p>
+                    Les données sont récupérées en temps réel via une <b>API REST</b> hébergée sur un serveur externe.
+                    L'application gère la persistance locale avec <b>AsyncStorage</b> pour les favoris et la mémorisation des identifiants.
+                </p>
+
+                <ul class="feature-list mb-3">
+                    <li><i class="fas fa-sign-in-alt me-2" style="color:#007AFF"></i>Authentification avec option "Se souvenir de moi"</li>
+                    <li><i class="fas fa-newspaper me-2" style="color:#34c759"></i>Articles avec recherche, photos et mise en favoris</li>
+                    <li><i class="fas fa-images me-2" style="color:#ff9500"></i>Galeries photos dépliables avec légendes</li>
+                    <li><i class="fas fa-calendar me-2" style="color:#ff3b30"></i>Calendrier des événements à venir</li>
+                    <li><i class="fas fa-star me-2" style="color:#f5c518"></i>Favoris persistants par catégorie (AsyncStorage)</li>
+                    <li><i class="fas fa-moon me-2" style="color:#5e5ce6"></i>Support thème clair / sombre automatique</li>
+                </ul>
+
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="project-tech"><i class="fab fa-react me-1"></i>React Native</span>
+                    <span class="project-tech"><i class="fas fa-route me-1"></i>Expo Router</span>
+                    <span class="project-tech"><i class="fas fa-database me-1"></i>AsyncStorage</span>
+                    <span class="project-tech"><i class="fas fa-plug me-1"></i>API REST</span>
+                    <span class="project-tech"><i class="fab fa-js me-1"></i>TypeScript</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <button class="btn btn-primary btn-sm" onclick="openPPDemo()">
+                        <i class="fas fa-mobile-alt me-2"></i>Tester la démo
+                    </button>
+                    <button class="btn btn-outline-light btn-sm" onclick="togglePPCode()" id="ppCodeBtn">
+                        <i class="fas fa-code me-2"></i>Voir le code source
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: file structure -->
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="foxcorrector-card">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-folder-open me-2" style="color:#4F9CF9"></i>
+                        <span>Architecture — Expo Router</span>
+                    </div>
+                    <div class="foxcorrector-tree">
+                        <div class="tree-item tree-root"><i class="fas fa-folder" style="color:#4F9CF9"></i> app/</div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> index.tsx <span class="tree-desc">— Écran de login</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> modal.tsx <span class="tree-desc">— Infos école (contact)</span></div>
+                        <div class="tree-item tree-l1"><i class="fas fa-folder" style="color:#34c759"></i> (tabs)/
+                            <span class="tree-badge" style="background:rgba(52,199,89,.2);color:#34c759">Navigation</span>
+                        </div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> _layout.tsx <span class="tree-desc">— Barre d'onglets</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> index.tsx <span class="tree-desc">— Accueil & favoris</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> two.tsx <span class="tree-desc">— Articles + recherche</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> three.tsx <span class="tree-desc">— Galeries photos</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-file-code" style="color:#aaa"></i> four.tsx <span class="tree-desc">— Calendrier</span></div>
+                        <div class="tree-item tree-root" style="margin-top:8px"><i class="fas fa-folder" style="color:#ff9500"></i> assets/</div>
+                        <div class="tree-item tree-l2"><i class="fas fa-image" style="color:#aaa"></i> images/ <span class="tree-desc">— Logo, Home, PPT...</span></div>
+                        <div class="tree-item tree-l2"><i class="fas fa-font" style="color:#aaa"></i> fonts/ <span class="tree-desc">— SpaceMono</span></div>
+                    </div>
+                </div>
+
+                <!-- API info box -->
+                <div class="foxcorrector-card mt-3">
+                    <div class="foxcorrector-card-header">
+                        <i class="fas fa-plug me-2" style="color:#34c759"></i>
+                        <span>API REST — Données en temps réel</span>
+                    </div>
+                    <div style="padding:12px 16px;font-size:.82rem;font-family:'Courier New',monospace;color:#ccc">
+                        <div style="color:#6e7681;margin-bottom:6px">// Endpoint unique, authentifié</div>
+                        <div style="color:#a5d6ff">GET sebastien-thon.fr/prince/index.php</div>
+                        <div style="color:#6e7681;margin-top:4px">?login=classe1&amp;mdp=mdp1</div>
+                        <div style="margin-top:10px;color:#7ee787">→ { articles[], galeries[], dates[] }</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code viewer -->
+        <div id="ppCodeViewer" style="display:none;margin-top:24px">
+            <div class="foxcorrector-card">
+                <div class="foxcorrector-card-header d-flex justify-content-between align-items-center">
+                    <div><i class="fas fa-code me-2" style="color:#4F9CF9"></i><span>Code source</span></div>
+                    <div class="code-tab-bar">
+                        <button class="code-tab active" onclick="showPPCode('login',this)">index.tsx</button>
+                        <button class="code-tab" onclick="showPPCode('home',this)">(tabs)/index.tsx</button>
+                        <button class="code-tab" onclick="showPPCode('articles',this)">two.tsx</button>
+                        <button class="code-tab" onclick="showPPCode('galerie',this)">three.tsx</button>
+                        <button class="code-tab" onclick="showPPCode('dates',this)">four.tsx</button>
+                    </div>
+                </div>
+                <div class="code-display">
+                    <pre class="fox-code"><code id="ppCodeText"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ MODAL Petit Prince ══════════════════════════════════════ -->
+    <div id="ppDemoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+        <div style="width:min(900px,95vw);background:#1a1c1f;border-radius:14px;overflow:hidden;border:1px solid rgba(79,156,249,0.25);box-shadow:0 30px 80px rgba(0,0,0,.7);display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#0d0e10;border-bottom:1px solid rgba(255,255,255,.07);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:18px;">🌙</span>
+                    <span style="font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:#4F9CF9;">Le Petit Prince</span>
+                    <span style="font-family:'Courier New',monospace;font-size:11px;color:#5c6370;">— Application mobile React Native</span>
+                </div>
+                <button onclick="closePPDemo()" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#aaa;width:30px;height:30px;border-radius:7px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;">×</button>
+            </div>
+            <iframe id="ppDemoFrame" src="petitprince_demo.html" style="width:100%;height:600px;border:none;display:block;" scrolling="no"></iframe>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Projets de communication -->
+    <section class="my-5 animated" style="animation-delay: 0.8s;">
+        <h3 class="text-center mb-4">Projets de communication</h3>
+        <div class="row justify-content-center">
+            <!-- Poster Scientifique -->
+            <div class="col-md-6 col-lg-5 mb-4">
+                <div class="card h-100 project-card bg-dark text-white">
+                    <div class="card-body bg-dark text-white">
+                        <h4 class="card-title">
+                            <i class="fas fa-map-marked-alt me-2"></i>Poster Scientifique
+                        </h4>
+                        <img src="Image/Booking.png" class="img-fluid rounded mb-3" alt="Poster Scientifique">
+                        <p class="card-text bg-dark text-white">
+                            Un poster informatif qui explique comment voyager de manière plus durable. Il présente des recommandations et des ressources pour encourager des pratiques écologiques dans le secteur du tourisme. Il met en avant le badge Voyage Durable de Booking.com et propose des solutions pour une sensibilisation accrue des voyageurs et des hébergeurs.
+                        </p>
+                        <span class="project-tech">
+                            <i class="fas fa-paint-brush me-1"></i>Design graphique
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flyer IUT Arles -->
+            <div class="col-md-6 col-lg-5 mb-4">
+                <div class="card h-100 project-card bg-dark text-white">
+                    <div class="card-body bg-dark text-white">
+                        <h4 class="card-title">
+                            <i class="fas fa-file-alt me-2"></i>Flyer IUT Arles
+                        </h4>
+                        <img src="Image/Flyer.png" class="img-fluid rounded mb-3" alt="Flyer IUT Arles">
+                        <p class="card-text">
+                            Un flyer promotionnel pour le BUT Informatique de l'IUT d'Arles. Il contient des informations pratiques sur la formation, les débouchés professionnels, ainsi que les spécificités du parcours A. Le flyer est conçu pour être clair, attractif et informatif, en intégrant des éléments visuels tels que des icônes, un QR code et des sections bien organisées.
+                        </p>
+                        <span class="project-tech">
+                            <i class="fas fa-columns me-1"></i>Mise en page
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="text-center py-3 mt-auto">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/Yuu0210" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/leon.chac?igsh=MW54a2Z4Mmh3NDltcg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ChacornacL22604" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="mt-3">© 2025 Léon Chacornac - Tous droits réservés</p>
+    </div>
+</footer>
+
+<!-- ══ FoxCorrector Demo Modal ══════════════════════════════════ -->
+<div id="foxDemoModal" style="
+    display:none; position:fixed; inset:0; z-index:9999;
+    background:rgba(0,0,0,0.82); backdrop-filter:blur(6px);
+    align-items:center; justify-content:center;">
+    <div style="
+        width:min(960px,96vw); background:#1a1c1f;
+        border-radius:14px; overflow:hidden;
+        border:1px solid rgba(241,111,4,0.25);
+        box-shadow:0 30px 80px rgba(0,0,0,0.7);
+        display:flex; flex-direction:column;">
+        <!-- Modal header -->
+        <div style="
+            display:flex; align-items:center; justify-content:space-between;
+            padding:14px 20px;
+            background:#0d0e10;
+            border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:18px;">🦊</span>
+                <span style="font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#F16F04;">FoxCorrector</span>
+                <span style="font-family:'Courier New',monospace; font-size:11px; color:#5c6370;">— Démo interactive</span>
+            </div>
+            <button onclick="closeFoxDemo()" style="
+                background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+                color:#aaa; width:30px; height:30px; border-radius:7px;
+                cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center;">×</button>
+        </div>
+        <!-- iframe -->
+        <iframe id="foxDemoFrame"
+            src="foxcorrector_demo.html"
+            style="width:100%; height:580px; border:none; display:block;"
+            scrolling="no">
+        </iframe>
+    </div>
+</div>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+// ── Petit Prince demo ──────────────────────────
+function openPPDemo() {
+    document.getElementById('ppDemoModal').style.display = 'flex';
+    document.getElementById('ppDemoFrame').src = 'petitprince_demo.html';
+    document.body.style.overflow = 'hidden';
+}
+function closePPDemo() {
+    document.getElementById('ppDemoModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('ppDemoModal').addEventListener('click', function(e) {
+    if (e.target === this) closePPDemo();
+});
+
+function togglePPCode() {
+    const v = document.getElementById('ppCodeViewer');
+    const b = document.getElementById('ppCodeBtn');
+    if (v.style.display === 'none') {
+        v.style.display = 'block';
+        b.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Masquer le code';
+        showPPCode('login', v.querySelector('.code-tab'));
+    } else {
+        v.style.display = 'none';
+        b.innerHTML = '<i class="fas fa-code me-2"></i>Voir le code source';
+    }
+}
+
+const PP_CODES = {
+login: `<span class="kw">export default function</span> <span class="fn">IndexScreen</span>() {
+  <span class="kw">const</span> [login, setLogin]       = useState(<span class="st">""</span>);
+  <span class="kw">const</span> [password, setPassword] = useState(<span class="st">""</span>);
+  <span class="kw">const</span> [rememberMe, set]       = useState(<span class="nb">false</span>);
+
+  <span class="cm">// Restaure les identifiants sauvegardés</span>
+  useEffect(() => {
+    <span class="kw">const</span> loadSaved = <span class="kw">async</span> () => {
+      <span class="kw">const</span> saved = <span class="kw">await</span> AsyncStorage.getItem(<span class="st">"savedLogin"</span>);
+      <span class="kw">if</span> (saved) { setLogin(saved); setRememberMe(<span class="nb">true</span>); }
+    };
+    loadSaved();
+  }, []);
+
+  <span class="kw">const</span> handleLogin = <span class="kw">async</span> () => {
+    <span class="kw">const</span> url = <span class="st">\`https://sebastien-thon.fr/prince/index.php
+      ?connexion&login=\${login}&mdp=\${password}\`</span>;
+    <span class="kw">const</span> resp = <span class="kw">await</span> fetch(url);
+    <span class="kw">const</span> text = <span class="kw">await</span> resp.text();
+    <span class="kw">if</span> (text.includes(<span class="st">'OK'</span>)) {
+      <span class="kw">if</span> (rememberMe)
+        <span class="kw">await</span> AsyncStorage.setItem(<span class="st">"savedLogin"</span>, login);
+      router.replace(<span class="st">'/(tabs)'</span>);
+    } <span class="kw">else</span> {
+      Alert.alert(<span class="st">"Erreur de connexion"</span>);
+    }
+  };
+}`,
+home: `<span class="cm">// Accueil — favoris rechargés à chaque focus</span>
+<span class="kw">export default function</span> <span class="fn">TabOneScreen</span>() {
+  <span class="kw">const</span> [articles, setArticles] = useState([]);
+  <span class="kw">const</span> [favoritesArticles]     = useState([]);
+
+  useFocusEffect(useCallback(() => {
+    fetchData();    <span class="cm">// API REST</span>
+    loadFavorites();<span class="cm">// AsyncStorage</span>
+  }, []));
+
+  <span class="kw">const</span> favoriteArticlesList = articles.filter(
+    a => favoritesArticles.includes(a.id)
+  );
+
+  <span class="kw">return</span> (
+    &lt;ScrollView&gt;
+      &lt;Image source={require(<span class="st">"../../assets/images/Logo.png"</span>)} /&gt;
+      &lt;Text&gt;Bonjour !&lt;/Text&gt;
+      &lt;FlatList
+        data={favoriteArticlesList}
+        ListEmptyComponent={&lt;Text&gt;Aucun article favori&lt;/Text&gt;}
+      /&gt;
+    &lt;/ScrollView&gt;
+  );
+}`,
+articles: `<span class="cm">// Articles — recherche + favoris + pull-to-refresh</span>
+<span class="kw">export default function</span> <span class="fn">TabTwoScreen</span>() {
+  <span class="kw">const</span> [articles, setArticles]     = useState([]);
+  <span class="kw">const</span> [filtered, setFiltered]     = useState([]);
+  <span class="kw">const</span> [favorites, setFavorites]   = useState([]);
+  <span class="kw">const</span> [search, setSearch]         = useState(<span class="st">""</span>);
+
+  <span class="kw">const</span> toggleFavorite = (id) => {
+    <span class="kw">if</span> (favorites.includes(id))
+      setFavorites(favorites.filter(f => f !== id));
+    <span class="kw">else</span>
+      setFavorites([...favorites, id]);
+  };
+
+  <span class="cm">// Sauvegarde auto des favoris</span>
+  useEffect(() => {
+    AsyncStorage.setItem(<span class="st">"favorites"</span>, JSON.stringify(favorites));
+  }, [favorites]);
+
+  <span class="kw">return</span> (
+    &lt;View&gt;
+      &lt;TextInput onChangeText={handleSearch} /&gt;
+      &lt;FlatList
+        data={filtered}
+        refreshControl={&lt;RefreshControl onRefresh={onRefresh} /&gt;}
+        renderItem={({ item }) => (
+          &lt;View&gt;
+            {item.important &amp;&amp; &lt;Text&gt;⚠ Important&lt;/Text&gt;}
+            &lt;Image source={{ uri: firstPhoto }} /&gt;
+            &lt;Text&gt;{item.titre}&lt;/Text&gt;
+            &lt;TouchableOpacity onPress={() => toggleFavorite(item.id)}&gt;
+              &lt;Ionicons name={isFav ? <span class="st">"star"</span> : <span class="st">"star-outline"</span>} /&gt;
+            &lt;/TouchableOpacity&gt;
+          &lt;/View&gt;
+        )}
+      /&gt;
+    &lt;/View&gt;
+  );
+}`,
+galerie: `<span class="cm">// Galerie — photos dépliables par galerie</span>
+<span class="kw">export default function</span> <span class="fn">TabThreeScreen</span>() {
+  <span class="kw">const</span> [openGalerie, setOpen] = useState(<span class="nb">null</span>);
+
+  <span class="kw">const</span> toggleGalerie = (index) => {
+    setOpenGalerie(openGalerie === index ? <span class="nb">null</span> : index);
+  };
+
+  <span class="kw">return</span> (
+    &lt;Pressable onPress={() => toggleGalerie(index)}&gt;
+      &lt;View&gt;
+        &lt;Image source={{ uri: firstPhoto }} /&gt;
+        &lt;Text&gt;{item.titre}&lt;/Text&gt;
+
+        {openGalerie === index &amp;&amp; (
+          &lt;View&gt;
+            {item.photos.map((photo, i) => (
+              &lt;View key={i}&gt;
+                &lt;Image source={{ uri: <span class="st">\`...images/\${photo.image}\`</span> }} /&gt;
+                &lt;Text&gt;{photo.legende}&lt;/Text&gt;
+              &lt;/View&gt;
+            ))}
+          &lt;/View&gt;
+        )}
+
+        &lt;Text&gt;{openGalerie === index
+          ? <span class="st">"▲ Masquer les photos"</span>
+          : <span class="st">"▼ Voir les photos"</span>}
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/Pressable&gt;
+  );
+}`,
+dates: `<span class="cm">// Calendrier — événements avec favoris</span>
+<span class="kw">export default function</span> <span class="fn">TabFourScreen</span>() {
+  <span class="kw">const</span> [dates, setDates]         = useState([]);
+  <span class="kw">const</span> [favorites, setFavorites] = useState([]);
+
+  <span class="kw">const</span> renderItem = ({ item, index }) => (
+    &lt;View&gt;
+      &lt;Text&gt;{item.titre}&lt;/Text&gt;
+      &lt;Text&gt;
+        {new Date(item.date).toLocaleDateString()}
+      &lt;/Text&gt;
+      &lt;Text&gt;{item.texte}&lt;/Text&gt;
+      &lt;TouchableOpacity
+        onPress={() => toggleFavorite(index)}
+      &gt;
+        &lt;Ionicons
+          name={isFav ? <span class="st">"star"</span> : <span class="st">"star-outline"</span>}
+          color=<span class="st">"gold"</span>
+        /&gt;
+      &lt;/TouchableOpacity&gt;
+    &lt;/View&gt;
+  );
+}`
+};
+
+function showPPCode(key, el) {
+    document.querySelectorAll('#ppCodeViewer .code-tab').forEach(t => t.classList.remove('active'));
+    if (el) el.classList.add('active');
+    document.getElementById('ppCodeText').innerHTML = PP_CODES[key] || '';
+}
+
+// ── Fox demo ──────────────────────────────────
+function openFoxDemo() {
+    const modal = document.getElementById('foxDemoModal');
+    modal.style.display = 'flex';
+    // Reload iframe to reset state
+    document.getElementById('foxDemoFrame').src = 'foxcorrector_demo.html';
+    document.body.style.overflow = 'hidden';
+}
+function closeFoxDemo() {
+    document.getElementById('foxDemoModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+// Close on backdrop click
+document.getElementById('foxDemoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeFoxDemo();
+});
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFoxDemo(); });
+</script>
+<script>
+// ── LoL Typing Test demo ─────────────────────────────────────────
+function openLolDemo() {
+    const modal = document.getElementById('lolDemoModal');
+    modal.style.display = 'flex';
+    document.getElementById('lolDemoFrame').src = 'lol_typing_demo.html';
+    document.body.style.overflow = 'hidden';
+}
+function closeLolDemo() {
+    document.getElementById('lolDemoModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('lolDemoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeLolDemo();
+});
+
+const LOL_CODES = {
+reducer: `<span class="kw">export const</span> REFERENCE_TEXT =
+  <span class="st">"Par son dévouement inébranlable envers Ionia,
+  Yunara a passé des siècles retirée dans le royaume
+  spirituel pour perfectionner sa maîtrise des Aion Er'na,
+  une relique légendaire du Kinkou..."</span>
+
+<span class="kw">export const</span> ACTIONS = {
+  START_TIMER: <span class="st">"START_TIMER"</span>,
+  TICK:        <span class="st">"TICK"</span>,
+  INPUT_CHANGE:<span class="st">"INPUT_CHANGE"</span>,
+  NEXT_WORD:   <span class="st">"NEXT_WORD"</span>,
+  END_GAME:    <span class="st">"END_GAME"</span>,
+  RESTART:     <span class="st">"RESTART"</span>,
+}
+
+<span class="kw">export function</span> <span class="fn">gameReducer</span>(state, action) {
+  <span class="kw">switch</span> (action.type) {
+
+    <span class="kw">case</span> ACTIONS.TICK: {
+      <span class="kw">const</span> newTime = state.timeLeft - <span class="nb">1</span>
+      <span class="kw">if</span> (newTime <= <span class="nb">0</span>) <span class="kw">return</span> <span class="fn">endGame</span>(state, <span class="nb">0</span>)
+      <span class="kw">return</span> { ...state, timeLeft: newTime }
+    }
+
+    <span class="kw">case</span> ACTIONS.NEXT_WORD: {
+      <span class="kw">const</span> { words, currentIndex, currentInput } = state
+      <span class="kw">const</span> isCorrect = currentInput.trim()
+        === words[currentIndex].expected
+      <span class="kw">const</span> updatedWords = words.map((w, i) => {
+        <span class="kw">if</span> (i === currentIndex)
+          <span class="kw">return</span> { ...w, status: isCorrect
+            ? WORD_STATUS.CORRECT
+            : WORD_STATUS.INCORRECT }
+        <span class="kw">if</span> (i === currentIndex + <span class="nb">1</span>)
+          <span class="kw">return</span> { ...w, status: WORD_STATUS.CURRENT }
+        <span class="kw">return</span> w
+      })
+      <span class="kw">const</span> nextIndex = currentIndex + <span class="nb">1</span>
+      <span class="kw">if</span> (nextIndex >= words.length)
+        <span class="kw">return</span> <span class="fn">endGame</span>({ ...state, words: updatedWords },
+                           state.timeLeft)
+      <span class="kw">return</span> { ...state, words: updatedWords,
+               currentIndex: nextIndex, currentInput: <span class="st">""</span> }
+    }
+
+    <span class="kw">case</span> ACTIONS.RESTART: {
+      <span class="kw">const</span> fresh = <span class="fn">initialState</span>()
+      <span class="kw">return</span> { ...fresh, history: state.history }
+    }
+
+    <span class="kw">default</span>: <span class="kw">return</span> state
+  }
+}`,
+
+context: `<span class="kw">export function</span> <span class="fn">GameProvider</span>({ children }) {
+  <span class="kw">const</span> [state, dispatch] = useReducer(
+    gameReducer, <span class="nb">undefined</span>, initialState
+  )
+  <span class="kw">const</span> intervalRef = useRef(<span class="nb">null</span>)
+
+  <span class="cm">// Lance / stoppe le timer selon l'état</span>
+  useEffect(() => {
+    <span class="kw">if</span> (state.timerStarted && !state.gameOver) {
+      intervalRef.current = setInterval(() => {
+        dispatch({ type: ACTIONS.TICK })
+      }, <span class="nb">1000</span>)
+    }
+    <span class="kw">return</span> () => clearInterval(intervalRef.current)
+  }, [state.timerStarted, state.gameOver])
+
+  <span class="kw">return</span> (
+    &lt;GameStateContext.Provider value={state}&gt;
+      &lt;GameDispatchContext.Provider value={dispatch}&gt;
+        {children}
+      &lt;/GameDispatchContext.Provider&gt;
+    &lt;/GameStateContext.Provider&gt;
+  )
+}
+
+<span class="kw">export function</span> <span class="fn">useGame</span>() {
+  <span class="kw">const</span> state    = useContext(GameStateContext)
+  <span class="kw">const</span> dispatch = useContext(GameDispatchContext)
+
+  <span class="kw">function</span> <span class="fn">handleInputChange</span>(value) {
+    <span class="kw">if</span> (!state.timerStarted && value.length > <span class="nb">0</span>)
+      dispatch({ type: ACTIONS.START_TIMER })
+    dispatch({ type: ACTIONS.INPUT_CHANGE,
+               payload: value })
+  }
+
+  <span class="kw">return</span> { ...state, handleInputChange,
+           handleNextWord, handleRestart }
+}`,
+
+worddisplay: `<span class="kw">export default function</span> <span class="fn">WordDisplay</span>() {
+  <span class="kw">const</span> { words, currentIndex, currentInput } = <span class="fn">useGame</span>()
+
+  <span class="kw">return</span> (
+    &lt;div style={{ lineHeight: <span class="st">"2.2"</span>, fontSize: <span class="st">"1.15rem"</span> }}&gt;
+      {words.map((word, idx) => {
+
+        <span class="cm">// Mot en cours : coloration lettre par lettre</span>
+        <span class="kw">if</span> (idx === currentIndex) {
+          <span class="kw">return</span> (
+            &lt;span key={idx}&gt;
+              {word.expected.split(<span class="st">""</span>).map((char, ci) => {
+                <span class="kw">let</span> charColor
+                <span class="kw">if</span> (ci &lt; currentInput.length)
+                  charColor = currentInput[ci] === char
+                    ? <span class="st">"#2ecc71"</span> : <span class="st">"#e74c3c"</span>
+                <span class="kw">else if</span> (ci === currentInput.length)
+                  charColor = <span class="st">"#eee"</span>  <span class="cm">// curseur</span>
+                <span class="kw">else</span>
+                  charColor = <span class="st">"#666"</span>  <span class="cm">// non saisi</span>
+
+                <span class="kw">return</span> (
+                  &lt;span key={ci} style={{
+                    color: charColor,
+                    borderBottom: ci === currentInput.length
+                      ? <span class="st">"2px solid #eee"</span> : <span class="st">"none"</span>
+                  }}&gt;{char}&lt;/span&gt;
+                )
+              })}
+            &lt;/span&gt;
+          )
+        }
+
+        <span class="cm">// Mots passés : couleur selon statut</span>
+        <span class="kw">return</span> (
+          &lt;span key={idx} style={{
+            color: STATUS_COLORS[word.status],
+            textDecoration: word.status === <span class="st">"incorrect"</span>
+              ? <span class="st">"underline wavy #e74c3c"</span> : <span class="st">"none"</span>
+          }}&gt;
+            {word.expected}{<span class="st">" "</span>}
+          &lt;/span&gt;
+        )
+      })}
+    &lt;/div&gt;
+  )
+}`,
+
+input: `<span class="kw">export default function</span> <span class="fn">InputArea</span>() {
+  <span class="kw">const</span> {
+    currentInput, gameOver,
+    handleInputChange, handleNextWord,
+    words, currentIndex
+  } = <span class="fn">useGame</span>()
+  <span class="kw">const</span> inputRef = useRef(<span class="nb">null</span>)
+
+  <span class="cm">// Refocus quand la partie redémarre</span>
+  useEffect(() => {
+    <span class="kw">if</span> (!gameOver && inputRef.current)
+      inputRef.current.focus()
+  }, [gameOver])
+
+  <span class="kw">function</span> <span class="fn">handleKeyDown</span>(e) {
+    <span class="kw">if</span> (e.key === <span class="st">" "</span> || e.key === <span class="st">"Enter"</span>) {
+      e.preventDefault()
+      <span class="kw">if</span> (currentInput.trim().length > <span class="nb">0</span>)
+        handleNextWord()
+    }
+  }
+
+  <span class="kw">function</span> <span class="fn">handleChange</span>(e) {
+    <span class="kw">const</span> value = e.target.value
+    <span class="cm">// Empêche de saisir un espace</span>
+    <span class="kw">if</span> (!value.includes(<span class="st">" "</span>))
+      handleInputChange(value)
+  }
+
+  <span class="kw">return</span> (
+    &lt;input
+      ref={inputRef}
+      type=<span class="st">"text"</span>
+      value={currentInput}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      disabled={gameOver}
+      autoComplete=<span class="st">"off"</span> autoCorrect=<span class="st">"off"</span>
+      autoCapitalize=<span class="st">"off"</span> spellCheck=<span class="st">"false"</span>
+    /&gt;
+  )
+}`,
+
+results: `<span class="kw">export default function</span> <span class="fn">Results</span>() {
+  <span class="kw">const</span> { gameOver, history, handleRestart } = <span class="fn">useGame</span>()
+
+  <span class="kw">if</span> (!gameOver || history.length === <span class="nb">0</span>)
+    <span class="kw">return null</span>
+
+  <span class="kw">const</span> latest = history[<span class="nb">0</span>]
+
+  <span class="kw">return</span> (
+    &lt;div&gt;
+      &lt;h2&gt;Résultats&lt;/h2&gt;
+      &lt;div style={{ display: <span class="st">"grid"</span>,
+                    gridTemplateColumns:
+                      <span class="st">"repeat(auto-fit, minmax(130px,1fr))"</span> }}&gt;
+        &lt;Stat label=<span class="st">"Mots corrects"</span>
+              value={latest.correctWords}
+              color=<span class="st">"#2ecc71"</span> /&gt;
+        &lt;Stat label=<span class="st">"Mots incorrects"</span>
+              value={latest.incorrectWords}
+              color=<span class="st">"#e74c3c"</span> /&gt;
+        &lt;Stat label=<span class="st">"Caractères"</span>
+              value={latest.charsEntered} /&gt;
+        &lt;Stat label=<span class="st">"WPM"</span>
+              value={latest.wpm} /&gt;
+      &lt;/div&gt;
+      &lt;button onClick={handleRestart}&gt;Rejouer&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}`
+};
+
+function showLolCode(key, el) {
+    document.querySelectorAll('#lolCodeViewer .code-tab').forEach(t => t.classList.remove('active'));
+    if (el) el.classList.add('active');
+    document.getElementById('lolCodeText').innerHTML = LOL_CODES[key] || '';
+}
+
+function toggleLolCode() {
+    const v = document.getElementById('lolCodeViewer');
+    const b = document.getElementById('lolCodeBtn');
+    if (v.style.display === 'none') {
+        v.style.display = 'block';
+        b.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Masquer le code';
+        showLolCode('reducer', v.querySelector('.code-tab'));
+    } else {
+        v.style.display = 'none';
+        b.innerHTML = '<i class="fas fa-code me-2"></i>Voir le code source';
+    }
+}
+
+// ── Restaurant demo ───────────────────────────────────────────────
+function openRestoDemo() {
+    const modal = document.getElementById('restoDemoModal');
+    modal.style.display = 'flex';
+    document.getElementById('restoDemoFrame').src = 'restaurant_demo.html';
+    document.body.style.overflow = 'hidden';
+}
+function closeRestoDemo() {
+    document.getElementById('restoDemoModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('restoDemoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeRestoDemo();
+});
+
+const RESTO_CODES = {
+restaurant: `<span class="kw">export class</span> <span class="fn">Restaurant</span> {
+  <span class="fn">constructor</span>(data) {
+    <span class="cm">// Extraction des propriétés depuis les tags OSM</span>
+    <span class="nm">this</span>.nom           = data.tags?.name
+                       || <span class="st">'Restaurant sans nom'</span>;
+    <span class="nm">this</span>.lat           = data.lat;
+    <span class="nm">this</span>.lon           = data.lon;
+    <span class="nm">this</span>.cuisine       = data.tags?.cuisine
+                       || <span class="st">'Non spécifié'</span>;
+    <span class="nm">this</span>.heureOuverture = data.tags?.opening_hours
+                       || <span class="st">'Non spécifié'</span>;
+    <span class="nm">this</span>.adresse       = data.tags?.[<span class="st">'addr:city'</span>]
+                       || <span class="st">'Non disponible'</span>;
+  }
+}`,
+
+apiservice: `<span class="kw">export class</span> <span class="fn">APIService</span> {
+
+  <span class="kw">static async</span> <span class="fn">obtenirCoordonnees</span>(adresse) {
+    <span class="cm">// API Adresse (data.gouv.fr) — géocodage français</span>
+    <span class="kw">const</span> url = <span class="st">\`https://api-adresse.data.gouv.fr/search/
+      ?q=\${encodeURIComponent(adresse)}&limit=1\`</span>;
+    <span class="kw">const</span> response = <span class="kw">await</span> fetch(url);
+    <span class="kw">const</span> data     = <span class="kw">await</span> response.json();
+
+    <span class="kw">if</span> (data.features && data.features.length > <span class="nb">0</span>) {
+      <span class="kw">const</span> coords = data.features[<span class="nb">0</span>].geometry.coordinates;
+      <span class="kw">return</span> {
+        lon:     coords[<span class="nb">0</span>],
+        lat:     coords[<span class="nb">1</span>],
+        adresse: data.features[<span class="nb">0</span>].properties.label
+      };
+    }
+    <span class="kw">return null</span>;
+  }
+
+  <span class="kw">static async</span> <span class="fn">obtenirRestaurants</span>(lat, lon) {
+    <span class="cm">// Overpass API (OpenStreetMap) — rayon 2km, max 20</span>
+    <span class="kw">const</span> query = <span class="st">\`[out:json];
+      node["amenity"="restaurant"]
+      (around:2000,\${lat},\${lon});
+      out body 20;\`</span>;
+    <span class="kw">const</span> url = <span class="st">\`https://overpass-api.de/api/interpreter
+      ?data=\${encodeURIComponent(query)}\`</span>;
+    <span class="kw">const</span> response = <span class="kw">await</span> fetch(url);
+    <span class="kw">const</span> data     = <span class="kw">await</span> response.json();
+
+    <span class="kw">return</span> (data.elements || [])
+      .map(element => <span class="kw">new</span> <span class="fn">Restaurant</span>(element));
+  }
+}`,
+
+app: `<span class="kw">export class</span> <span class="fn">ApplicationRestaurants</span> {
+  <span class="fn">constructor</span>() {
+    <span class="nm">this</span>.map         = <span class="kw">null</span>;
+    <span class="nm">this</span>.markers     = [];
+    <span class="nm">this</span>.restaurants = [];
+
+    <span class="nm">this</span>.initialiserInterface();
+    <span class="nm">this</span>.attacherEvenements();
+  }
+
+  <span class="kw">async</span> <span class="fn">rechercher</span>() {
+    <span class="kw">const</span> adresse = document
+      .getElementById(<span class="st">'adresse'</span>).value.trim();
+    <span class="kw">if</span> (!adresse) <span class="kw">return</span>;
+
+    <span class="kw">const</span> coords = <span class="kw">await</span> APIService
+      .obtenirCoordonnees(adresse);
+    <span class="kw">if</span> (!coords) { <span class="cm">/* adresse non trouvée */</span> <span class="kw">return</span>; }
+
+    <span class="cm">// Initialise ou repositionne la carte</span>
+    <span class="kw">if</span> (!<span class="nm">this</span>.map) {
+      <span class="nm">this</span>.map = L.map(<span class="st">'map'</span>)
+        .setView([coords.lat, coords.lon], <span class="nb">15</span>);
+      L.tileLayer(<span class="st">'https://{s}.tile.openstreetmap.org/...'</span>)
+       .addTo(<span class="nm">this</span>.map);
+    } <span class="kw">else</span> {
+      <span class="nm">this</span>.map.setView([coords.lat, coords.lon], <span class="nb">15</span>);
+    }
+
+    <span class="cm">// Nettoyage et ajout des marqueurs</span>
+    <span class="nm">this</span>.markers.forEach(m => <span class="nm">this</span>.map.removeLayer(m));
+    <span class="nm">this</span>.markers = [];
+
+    <span class="nm">this</span>.restaurants = <span class="kw">await</span> APIService
+      .obtenirRestaurants(coords.lat, coords.lon);
+
+    <span class="nm">this</span>.restaurants.forEach(resto => {
+      <span class="kw">const</span> marker = L.marker([resto.lat, resto.lon])
+        .addTo(<span class="nm">this</span>.map);
+      marker.bindPopup(<span class="st">\`&lt;strong&gt;\${resto.nom}&lt;/strong&gt;\`</span>);
+      <span class="nm">this</span>.markers.push(marker);
+    });
+
+    <span class="cm">// Ajuster le zoom pour tout voir</span>
+    <span class="kw">const</span> group = L.featureGroup(<span class="nm">this</span>.markers);
+    <span class="nm">this</span>.map.fitBounds(group.getBounds().pad(<span class="nb">0.1</span>));
+  }
+}`,
+
+index: `<span class="kw">import</span> <span class="st">'./style.css'</span>;
+<span class="kw">import</span> * <span class="kw">as</span> L <span class="kw">from</span> <span class="st">'leaflet'</span>;
+<span class="kw">import</span> { ApplicationRestaurants } <span class="kw">from</span> <span class="st">'./app'</span>;
+
+<span class="cm">// Fix pour les icônes Leaflet avec Webpack</span>
+<span class="kw">delete</span> L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require(<span class="st">'leaflet/dist/images/marker-icon-2x.png'</span>),
+  iconUrl:       require(<span class="st">'leaflet/dist/images/marker-icon.png'</span>),
+  shadowUrl:     require(<span class="st">'leaflet/dist/images/marker-shadow.png'</span>),
+});
+
+<span class="kw">new</span> <span class="fn">ApplicationRestaurants</span>();`
+};
+
+function showRestoCode(key, el) {
+    document.querySelectorAll('#restoCodeViewer .code-tab').forEach(t => t.classList.remove('active'));
+    if (el) el.classList.add('active');
+    document.getElementById('restoCodeText').innerHTML = RESTO_CODES[key] || '';
+}
+
+function toggleRestoCode() {
+    const v = document.getElementById('restoCodeViewer');
+    const b = document.getElementById('restoCodeBtn');
+    if (v.style.display === 'none') {
+        v.style.display = 'block';
+        b.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Masquer le code';
+        showRestoCode('restaurant', v.querySelector('.code-tab'));
+    } else {
+        v.style.display = 'none';
+        b.innerHTML = '<i class="fas fa-code me-2"></i>Voir le code source';
+    }
+}
+
+// ── FoxCorrector Code Viewer ──────────────────────────────────────
+const CODE_SNIPPETS = {
+  app: `<span class="cm">"""Main application class for FoxCorrector
+
+Manages the entire application interface including user authentication,
+navigation between pages, and coordination of correction workflows.
+"""</span>
+
+<span class="kw">from</span> customtkinter <span class="kw">import</span> *
+<span class="kw">import</span> json, os
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+<span class="kw">from</span> PIL <span class="kw">import</span> Image
+<span class="kw">from</span> .pages.dashboard_page  <span class="kw">import</span> DashboardPage
+<span class="kw">from</span> .pages.statistics_page <span class="kw">import</span> StatisticsPage
+<span class="kw">from</span> .pages.correction_page <span class="kw">import</span> CorrectionPage
+<span class="kw">from</span> src.business.CorrectionManager <span class="kw">import</span> CorrectionManager
+<span class="kw">from</span> src.business.Exercise <span class="kw">import</span> shutdownAllContainers
+
+<span class="kw">class</span> <span class="fn">App</span>(CTk):
+    <span class="cm">"""Main application class for FoxCorrector GUI.
+    
+    Attributes:
+        current_user (str): Currently logged-in user.
+        manager (CorrectionManager): Handles correction operations.
+        currentEvaluation: Currently loaded evaluation config.
+    """</span>
+
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="nm">self</span>):
+        <span class="nb">super</span>().__init__()
+        <span class="nm">self</span>.geometry(<span class="st">"1100x700"</span>)
+        set_appearance_mode(<span class="st">"dark"</span>)
+        set_default_color_theme(<span class="st">"blue"</span>)
+        <span class="nm">self</span>.title(<span class="st">"FoxCorrector - Bash Correction Tool"</span>)
+
+        <span class="nm">self</span>.current_user = <span class="nb">None</span>
+        <span class="nm">self</span>.userData = {}
+        <span class="nm">self</span>.loadUsersData()
+        <span class="nm">self</span>.manager = <span class="fn">CorrectionManager</span>()
+        <span class="nm">self</span>.currentEvaluation = <span class="nb">None</span>
+        <span class="nm">self</span>.correctionResults = <span class="nb">None</span>
+
+        <span class="nm">self</span>.showLoginPage()
+        <span class="nm">self</span>.protocol(<span class="st">"WM_DELETE_WINDOW"</span>, <span class="nm">self</span>.on_closing)
+
+    <span class="kw">def</span> <span class="fn">login</span>(<span class="nm">self</span>, username, password):
+        <span class="kw">if</span> username <span class="kw">in</span> <span class="nm">self</span>.userData:
+            <span class="kw">if</span> <span class="nm">self</span>.userData[username][<span class="st">"password"</span>] == password:
+                <span class="nm">self</span>.current_user = username
+                <span class="nm">self</span>.showMainInterface()
+                <span class="kw">return</span> <span class="nb">True</span>
+        <span class="kw">return</span> <span class="nb">False</span>
+
+    <span class="kw">def</span> <span class="fn">on_closing</span>(<span class="nm">self</span>):
+        shutdownAllContainers()  <span class="cm"># Clean up Docker containers</span>
+        <span class="nm">self</span>.destroy()`,
+
+  correction: `<span class="cm">"""Correction — critères d'évaluation d'un exercice Bash"""</span>
+
+<span class="kw">class</span> <span class="fn">Correction</span>:
+    <span class="cm">"""Représente les critères de correction d'un exercice.
+    
+    Attributes:
+        expected_output (str): Sortie attendue du script.
+        keywords (list[str]): Mots-clés à chercher dans la sortie.
+        structures (list[str]): Structures à chercher dans le code.
+        check_plagiarism (bool): Activer la détection de plagiat.
+        exec_timeout (int): Timeout d'exécution en secondes.
+    """</span>
+
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="nm">self</span>, expected_output=<span class="nb">None</span>, keywords=<span class="nb">None</span>,
+                 structures=<span class="nb">None</span>, check_plagiarism=<span class="nb">None</span>, exec_timeout=<span class="nb">None</span>):
+        
+        <span class="cm"># Validation des types</span>
+        <span class="kw">if</span> expected_output <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">and not</span> <span class="nb">isinstance</span>(expected_output, <span class="nb">str</span>):
+            <span class="kw">raise</span> <span class="fn">TypeError</span>(<span class="st">f"expected_output must be str, got {type(expected_output).__name__}"</span>)
+        <span class="kw">if</span> keywords <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">and not</span> <span class="nb">isinstance</span>(keywords, <span class="nb">list</span>):
+            <span class="kw">raise</span> <span class="fn">TypeError</span>(<span class="st">f"keywords must be a list"</span>)
+        <span class="kw">if</span> exec_timeout <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">and</span> exec_timeout &lt;= <span class="nb">0</span>:
+            <span class="kw">raise</span> <span class="fn">ValueError</span>(<span class="st">"exec_timeout must be a positive integer"</span>)
+        <span class="kw">if</span> expected_output <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">and</span> <span class="st">'\\n'</span> <span class="kw">in</span> expected_output:
+            <span class="kw">raise</span> <span class="fn">ValueError</span>(<span class="st">"expected_output must be a single line"</span>)
+
+        <span class="nm">self</span>.expected_output  = expected_output
+        <span class="nm">self</span>.keywords         = keywords   <span class="kw">if</span> keywords   <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">else</span> []
+        <span class="nm">self</span>.structures       = structures <span class="kw">if</span> structures <span class="kw">is not</span> <span class="nb">None</span> <span class="kw">else</span> []
+        <span class="nm">self</span>.check_plagiarism  = check_plagiarism
+        <span class="nm">self</span>.exec_timeout     = exec_timeout
+
+    <span class="kw">def</span> <span class="fn">__str__</span>(<span class="nm">self</span>):
+        out = <span class="nm">self</span>.expected_output <span class="kw">or</span> <span class="st">"No expected output"</span>
+        <span class="kw">return</span> (<span class="st">f"Correction: {out}\\n"</span>
+                <span class="st">f"Keywords: {len(self.keywords)}\\n"</span>
+                <span class="st">f"Structures: {len(self.structures)}"</span>)`,
+
+  exercise: `<span class="cm">"""Exercise — exécution isolée dans Docker + analyse de sortie"""</span>
+
+<span class="kw">import</span> docker, threading, base64
+
+_SANDBOX_IMAGE = <span class="st">"foxcorrector-sandbox:latest"</span>
+_EXEC_TIMEOUT  = <span class="nb">10</span>  <span class="cm"># secondes</span>
+
+<span class="kw">class</span> <span class="fn">Exercise</span>:
+    <span class="cm">"""Exercice avec exécution Docker isolée par thread."""</span>
+
+    <span class="kw">def</span> <span class="fn">keywordVerification</span>(<span class="nm">self</span>, filename, user_input=<span class="nb">None</span>):
+        <span class="cm">"""Exécute un script Bash et analyse la sortie.
+        Gère automatiquement les fichiers .fox (obfusqués).
+        """</span>
+        <span class="kw">if</span> filename.endswith(<span class="st">'.fox'</span>):
+            storage = <span class="fn">FoxStorage</span>()
+            temp_file = storage.getTempFileForExecution(filename)
+            <span class="kw">try</span>:
+                <span class="kw">return</span> <span class="nm">self</span>._executeKeywordVerification(temp_file, user_input)
+            <span class="kw">finally</span>:
+                os.remove(temp_file)
+        <span class="kw">return</span> <span class="nm">self</span>._executeKeywordVerification(filename, user_input)
+
+    <span class="kw">def</span> <span class="fn">_executeInDocker</span>(<span class="nm">self</span>, script_content, user_input=<span class="nb">None</span>):
+        <span class="cm">"""Exécute le script dans un conteneur Docker persistant par thread.
+        
+        Sécurité:
+          - 1 conteneur par thread (isolation totale)
+          - Filesystem reset entre chaque étudiant
+          - Pas d'accès réseau
+          - Limites mémoire (128m) et CPU (0.5)
+        """</span>
+        client    = docker.from_env()
+        container = _getOrCreateContainer(client)
+        _resetContainer(container)  <span class="cm"># Nettoyage isolation</span>
+
+        script_b64 = base64.b64encode(
+            script_content.encode(<span class="st">'utf-8'</span>)
+        ).decode(<span class="st">'ascii'</span>)
+
+        cmd = <span class="st">f'bash &lt;(echo "{script_b64}" | base64 -d)'</span>
+
+        exit_code, output = _runWithTimeout(
+            container, [<span class="st">'bash'</span>, <span class="st">'-c'</span>, cmd],
+            timeout=_EXEC_TIMEOUT
+        )
+
+        <span class="kw">if</span> output == <span class="st">b'TIMEOUT'</span>:
+            <span class="kw">return</span> [], <span class="st">"Script dépassé le timeout d'exécution."</span>
+
+        lines = output.decode(<span class="st">'utf-8'</span>, errors=<span class="st">'replace'</span>).splitlines()
+        <span class="kw">return</span> [l.strip() <span class="kw">for</span> l <span class="kw">in</span> lines <span class="kw">if</span> l.strip()], <span class="nb">None</span>`,
+
+  dashboard: `<span class="cm">"""Dashboard page — statistiques et activité récente"""</span>
+
+<span class="kw">from</span> customtkinter <span class="kw">import</span> *
+
+<span class="kw">class</span> <span class="fn">DashboardPage</span>(CTkScrollableFrame):
+    <span class="cm">"""Page d'accueil avec statistiques de correction."""</span>
+
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="nm">self</span>, parent, app):
+        <span class="nb">super</span>().__init__(parent, fg_color=<span class="st">"transparent"</span>)
+        <span class="nm">self</span>.pack(fill=<span class="st">"both"</span>, expand=<span class="nb">True</span>)
+        <span class="nm">self</span>.app = app
+
+        <span class="cm"># En-tête</span>
+        header = <span class="fn">CTkFrame</span>(<span class="nm">self</span>, fg_color=<span class="st">"transparent"</span>)
+        header.pack(fill=<span class="st">"x"</span>, pady=(<span class="nb">30</span>, <span class="nb">20</span>), padx=<span class="nb">40</span>)
+        <span class="fn">CTkLabel</span>(header, text=<span class="st">"Main Dashboard"</span>,
+                 font=(<span class="st">"Arial Bold"</span>, <span class="nb">32</span>),
+                 text_color=<span class="st">"#F16F04"</span>).pack(side=<span class="st">"left"</span>)
+
+        <span class="cm"># Cartes de statistiques (Total / En attente / Validé)</span>
+        stats = app.getUserStats()
+        container = <span class="fn">CTkFrame</span>(<span class="nm">self</span>, fg_color=<span class="st">"transparent"</span>)
+        container.pack(pady=<span class="nb">20</span>, padx=<span class="nb">40</span>)
+
+        <span class="nm">self</span>.createStatCard(container, <span class="st">"Total"</span>,    stats[<span class="st">"total_corrections"</span>], <span class="st">"#70179A"</span>)
+        <span class="nm">self</span>.createStatCard(container, <span class="st">"Pending"</span>,  stats[<span class="st">"waiting"</span>],           <span class="st">"#F16F04"</span>)
+        <span class="nm">self</span>.createStatCard(container, <span class="st">"Validated"</span>,stats[<span class="st">"valid"</span>],             <span class="st">"#28A745"</span>)
+
+        <span class="cm"># Activité récente</span>
+        recent = <span class="fn">CTkFrame</span>(<span class="nm">self</span>, fg_color=<span class="st">"#2b2b2b"</span>, corner_radius=<span class="nb">12</span>)
+        recent.pack(pady=<span class="nb">20</span>, padx=<span class="nb">40</span>, fill=<span class="st">"both"</span>, expand=<span class="nb">True</span>)
+
+        activities = app.getUserActivity()
+        <span class="kw">if</span> activities:
+            <span class="kw">for</span> act <span class="kw">in</span> activities:
+                item = <span class="fn">CTkFrame</span>(recent, fg_color=<span class="st">"#1a1a1a"</span>, corner_radius=<span class="nb">8</span>)
+                item.pack(pady=<span class="nb">5</span>, padx=<span class="nb">20</span>, fill=<span class="st">"x"</span>)
+                <span class="fn">CTkLabel</span>(item, text=act, font=(<span class="st">"Arial"</span>, <span class="nb">11</span>)).pack(
+                    pady=<span class="nb">15</span>, padx=<span class="nb">15</span>, anchor=<span class="st">"w"</span>)
+
+    <span class="kw">def</span> <span class="fn">createStatCard</span>(<span class="nm">self</span>, parent, title, value, color):
+        card = <span class="fn">CTkFrame</span>(parent, fg_color=color,
+                        width=<span class="nb">180</span>, height=<span class="nb">110</span>, corner_radius=<span class="nb">12</span>)
+        card.pack_propagate(<span class="nb">0</span>)
+        card.pack(side=<span class="st">"left"</span>, padx=<span class="nb">15</span>)
+        <span class="fn">CTkLabel</span>(card, text=title, font=(<span class="st">"Arial Bold"</span>, <span class="nb">14</span>),
+                 text_color=<span class="st">"#fff"</span>).pack(pady=(<span class="nb">20</span>, <span class="nb">5</span>))
+        <span class="fn">CTkLabel</span>(card, text=<span class="nb">str</span>(value), font=(<span class="st">"Arial Bold"</span>, <span class="nb">38</span>),
+                 text_color=<span class="st">"#fff"</span>).pack()`
+};
+
+function showCode(key) {
+  document.getElementById('codeText').innerHTML = CODE_SNIPPETS[key];
+  document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function toggleCodeViewer() {
+  const viewer = document.getElementById('codeViewer');
+  const btn = document.getElementById('codeToggleBtn');
+  if (viewer.style.display === 'none') {
+    viewer.style.display = 'block';
+    btn.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Masquer le code';
+    btn.classList.replace('btn-outline-warning', 'btn-warning');
+    // Load default tab
+    document.getElementById('codeText').innerHTML = CODE_SNIPPETS['app'];
+  } else {
+    viewer.style.display = 'none';
+    btn.innerHTML = '<i class="fas fa-code me-2"></i>Voir le code source';
+    btn.classList.replace('btn-warning', 'btn-outline-warning');
+  }
+}
+</script>
+</body>
+</html>

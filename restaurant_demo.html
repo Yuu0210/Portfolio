@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recherche Restaurants — Démo</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #22c55e;
+  --accent-dim: rgba(34,197,94,0.18);
+  --accent-hover: #16a34a;
+  --bg: #111214;
+  --bg2: #1a1c1f;
+  --bg3: #222428;
+  --bg4: #2b2d32;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8eaed;
+  --text2: #9aa0ab;
+  --text3: #5c6370;
+  --blue: #4F9CF9;
+  --radius: 10px;
+  --font: 'Outfit', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  height: 100%;
+  overflow: hidden;
+}
+
+.demo-shell {
+  width: 100%;
+  height: 600px;
+  background: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+.demo-titlebar {
+  height: 32px;
+  background: #0d0e10;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+.titlebar-dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green  { background: #28c840; }
+.titlebar-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+  margin-left: 10px;
+}
+
+.demo-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.app-header {
+  background: #000;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app-header .app-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* ── SEARCH BAR ── */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.search-input {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border 0.15s;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text3); }
+.search-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.search-btn:hover { background: var(--accent-hover); }
+.search-btn:disabled { background: #444; cursor: not-allowed; }
+
+/* ── CONTENT AREA ── */
+.content-area {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── MAP ── */
+#demo-map {
+  width: 100%;
+  height: 100%;
+  background: var(--bg3);
+}
+
+/* ── SIDEBAR / RESULTS ── */
+.results-panel {
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.results-panel::-webkit-scrollbar { width: 4px; }
+.results-panel::-webkit-scrollbar-track { background: transparent; }
+.results-panel::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 2px; }
+
+.results-header {
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.results-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.results-count {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+.results-count span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.results-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.results-empty .icon { font-size: 32px; opacity: 0.4; }
+.results-empty p { font-size: 12px; color: var(--text3); line-height: 1.5; }
+
+.resto-list { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+
+.resto-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.resto-card:hover {
+  border-color: var(--accent);
+  background: var(--bg4);
+}
+.resto-card.active {
+  border-color: var(--accent);
+  background: rgba(34,197,94,0.06);
+}
+.resto-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resto-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.resto-tag {
+  font-size: 10px;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.resto-tag .dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0;
+}
+
+/* Loading state */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+}
+.spinner {
+  width: 24px; height: 24px;
+  border: 2px solid var(--bg4);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state p { font-size: 11px; color: var(--text3); }
+
+/* Address marker badge */
+.addr-badge {
+  margin: 8px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.addr-badge .addr-label { color: var(--text3); font-size: 10px; margin-bottom: 2px; }
+.addr-badge .addr-value { color: var(--text); font-weight: 500; }
+
+/* Status bar */
+.status-bar {
+  height: 22px;
+  background: #0d0e10;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.status-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.status-item .s-dot { width: 6px; height: 6px; border-radius: 50%; }
+.s-green { background: var(--accent); }
+.s-blue  { background: var(--blue); }
+
+/* Leaflet overrides */
+.leaflet-container { background: #1a1c1f !important; }
+.leaflet-popup-content-wrapper {
+  background: var(--bg2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
+}
+.leaflet-popup-tip { background: var(--bg2) !important; }
+.leaflet-popup-content { font-family: var(--font) !important; font-size: 12px !important; line-height: 1.6 !important; }
+.leaflet-popup-content strong { color: var(--accent) !important; display: block; margin-bottom: 3px; }
+.leaflet-tile { filter: brightness(0.85) saturate(0.6) invert(1) hue-rotate(180deg); }
+
+/* Presets */
+.presets {
+  display: flex;
+  gap: 6px;
+  padding: 0 16px 10px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.preset-chip {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 10px;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font);
+}
+.preset-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+</style>
+</head>
+<body>
+
+<div class="demo-shell">
+  <!-- Fake OS titlebar -->
+  <div class="demo-titlebar">
+    <div class="titlebar-dot dot-red"></div>
+    <div class="titlebar-dot dot-yellow"></div>
+    <div class="titlebar-dot dot-green"></div>
+    <span class="titlebar-title">restaurants-app — webpack dev server</span>
+  </div>
+
+  <!-- App content -->
+  <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+    <!-- Header -->
+    <div class="app-header">
+      <div class="app-dot"></div>
+      Recherche de Restaurants
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input type="text" class="search-input" id="demo-input" placeholder="Entrez une adresse (ex: Paris, Lyon, Marseille…)" autocomplete="off">
+      <button class="search-btn" id="demo-btn" onclick="launchSearch()">Rechercher</button>
+    </div>
+
+    <!-- Presets -->
+    <div class="presets">
+      <span style="font-size:10px;color:var(--text3);align-self:center;margin-right:4px;">Essayez :</span>
+      <span class="preset-chip" onclick="usePreset('Paris 1er')">Paris 1er</span>
+      <span class="preset-chip" onclick="usePreset('Lyon 2ème')">Lyon 2ème</span>
+      <span class="preset-chip" onclick="usePreset('Marseille Vieux-Port')">Marseille Vieux-Port</span>
+      <span class="preset-chip" onclick="usePreset('Bordeaux Centre')">Bordeaux Centre</span>
+      <span class="preset-chip" onclick="usePreset('Nice Promenade des Anglais')">Nice</span>
+    </div>
+
+    <!-- Map + results -->
+    <div class="content-area">
+      <div id="demo-map"></div>
+
+      <div class="results-panel" id="results-panel">
+        <div class="results-empty" id="empty-state">
+          <div class="icon">🗺️</div>
+          <p>Entrez une adresse pour découvrir les restaurants à proximité dans un rayon de 2 km.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <div class="status-item">
+        <div class="s-dot s-green"></div>
+        OpenStreetMap
+      </div>
+      <div class="status-item">
+        <div class="s-dot s-blue"></div>
+        Overpass API
+      </div>
+      <div class="status-item" id="status-coords" style="display:none">
+        <div class="s-dot s-green"></div>
+        <span id="status-coords-text"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+let map = null;
+let markers = [];
+let activeCard = null;
+
+function initMap(lat, lon) {
+  if (!map) {
+    map = L.map('demo-map', { zoomControl: true, attributionControl: false })
+      .setView([lat, lon], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19
+    }).addTo(map);
+  } else {
+    map.setView([lat, lon], 15);
+  }
+}
+
+function clearMarkers() {
+  markers.forEach(m => map && map.removeLayer(m));
+  markers = [];
+}
+
+function usePreset(addr) {
+  document.getElementById('demo-input').value = addr;
+  launchSearch();
+}
+
+async function launchSearch() {
+  const input = document.getElementById('demo-input').value.trim();
+  if (!input) return;
+
+  const btn = document.getElementById('demo-btn');
+  btn.disabled = true;
+  btn.textContent = '…';
+
+  // Show loading
+  const panel = document.getElementById('results-panel');
+  panel.innerHTML = `
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Géolocalisation de l'adresse…</p>
+    </div>`;
+
+  try {
+    // 1. Geocode
+    const geoUrl = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(input)}&limit=1`;
+    const geoResp = await fetch(geoUrl);
+    const geoData = await geoResp.json();
+
+    if (!geoData.features || geoData.features.length === 0) {
+      panel.innerHTML = `
+        <div class="results-empty">
+          <div class="icon">❌</div>
+          <p>Adresse introuvable. Essayez une autre.</p>
+        </div>`;
+      return;
+    }
+
+    const [lon, lat] = geoData.features[0].geometry.coordinates;
+    const adresseLabel = geoData.features[0].properties.label;
+
+    // Update status
+    document.getElementById('status-coords').style.display = 'flex';
+    document.getElementById('status-coords-text').textContent = `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+
+    // Init map
+    initMap(lat, lon);
+    clearMarkers();
+
+    // Add address marker (red)
+    const redIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+    });
+    const addrMarker = L.marker([lat, lon], { icon: redIcon }).addTo(map);
+    addrMarker.bindPopup(`<strong>📍 Votre adresse</strong>${adresseLabel}`);
+    markers.push(addrMarker);
+
+    // Loading restaurants
+    panel.innerHTML = `
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Recherche des restaurants…</p>
+      </div>`;
+
+    // 2. Overpass
+    const query = `[out:json];node["amenity"="restaurant"](around:2000,${lat},${lon});out body 20;`;
+    const ovUrl = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
+    const ovResp = await fetch(ovUrl);
+    const ovData = await ovResp.json();
+    const restaurants = (ovData.elements || []);
+
+    // Build results
+    let html = `
+      <div class="addr-badge">
+        <div class="addr-label">Adresse recherchée</div>
+        <div class="addr-value">${adresseLabel}</div>
+      </div>
+      <div class="results-header">
+        <div class="results-title">Restaurants</div>
+        <div class="results-count"><span>${restaurants.length}</span> résultats dans un rayon de 2 km</div>
+      </div>`;
+
+    if (restaurants.length === 0) {
+      html += `
+        <div class="results-empty">
+          <div class="icon">🍽️</div>
+          <p>Aucun restaurant trouvé dans ce secteur.</p>
+        </div>`;
+    } else {
+      html += `<div class="resto-list" id="resto-list">`;
+      restaurants.forEach((r, i) => {
+        const nom = r.tags?.name || 'Restaurant sans nom';
+        const cuisine = r.tags?.cuisine || 'Non spécifié';
+        const horaires = r.tags?.opening_hours || 'Non spécifié';
+        const ville = r.tags?.['addr:city'] || r.tags?.['addr:street'] || 'Non disponible';
+
+        // Map marker
+        const marker = L.marker([r.lat, r.lon]).addTo(map);
+        marker.bindPopup(`<strong>${nom}</strong>Cuisine : ${cuisine}<br>Horaires : ${horaires}<br>Adresse : ${ville}`);
+        markers.push(marker);
+
+        html += `
+          <div class="resto-card" id="card-${i}" onclick="selectResto(${i}, ${r.lat}, ${r.lon})">
+            <div class="resto-name">${i + 1}. ${nom}</div>
+            <div class="resto-meta">
+              <div class="resto-tag"><div class="dot"></div>${cuisine}</div>
+              <div class="resto-tag"><div class="dot" style="background:#9aa0ab"></div>${horaires}</div>
+              <div class="resto-tag"><div class="dot" style="background:#4F9CF9"></div>${ville}</div>
+            </div>
+          </div>`;
+      });
+      html += `</div>`;
+
+      // Fit map
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.1));
+    }
+
+    panel.innerHTML = html;
+
+  } catch(e) {
+    panel.innerHTML = `
+      <div class="results-empty">
+        <div class="icon">⚠️</div>
+        <p>Erreur lors de la requête. Vérifiez votre connexion.</p>
+      </div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Rechercher';
+  }
+}
+
+function selectResto(index, lat, lon) {
+  if (activeCard !== null) {
+    const old = document.getElementById(`card-${activeCard}`);
+    if (old) old.classList.remove('active');
+  }
+  const card = document.getElementById(`card-${index}`);
+  if (card) card.classList.add('active');
+  activeCard = index;
+  if (map) map.setView([lat, lon], 17);
+  if (markers[index + 1]) markers[index + 1].openPopup();
+}
+
+document.getElementById('demo-input').addEventListener('keypress', e => {
+  if (e.key === 'Enter') launchSearch();
+});
+</script>
+</body>
+</html>

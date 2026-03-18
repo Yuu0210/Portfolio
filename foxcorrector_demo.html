@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoxCorrector — Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --fox: #F16F04;
+  --fox-dim: rgba(241,111,4,0.18);
+  --fox-hover: #D85F03;
+  --bg: #111214;
+  --bg2: #1a1c1f;
+  --bg3: #222428;
+  --bg4: #2b2d32;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8eaed;
+  --text2: #9aa0ab;
+  --text3: #5c6370;
+  --green: #28A745;
+  --red: #D32F2F;
+  --purple: #7C3AED;
+  --blue: #4F9CF9;
+  --sidebar-w: 190px;
+  --mini-w: 44px;
+  --radius: 10px;
+  --font: 'Outfit', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── DEMO WRAPPER ────────────────────────────── */
+.demo-shell {
+  width: 100%;
+  height: 580px;
+  background: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+.demo-titlebar {
+  height: 32px;
+  background: #0d0e10;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+.titlebar-dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green  { background: #28c840; }
+.titlebar-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+  margin-left: 10px;
+}
+
+.demo-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── LOGIN ───────────────────────────────────── */
+#screen-login {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 40% 40%, rgba(241,111,4,0.07) 0%, transparent 65%);
+}
+
+.login-box {
+  width: 340px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.fox-logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--fox);
+  letter-spacing: -0.5px;
+}
+.fox-logo-text span { color: var(--text2); font-weight: 400; }
+
+.tab-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0;
+}
+.tab-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all .2s;
+}
+.tab-btn.active { background: var(--fox); color: #fff; }
+.tab-btn:not(.active) { background: var(--bg4); color: var(--text2); }
+
+.login-card {
+  background: var(--bg3);
+  border-radius: 0 0 12px 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-top: none;
+}
+
+.field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.demo-input {
+  width: 100%;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12.5px;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+.demo-input:focus { border-color: var(--fox); }
+
+.login-hint {
+  font-size: 10.5px;
+  color: var(--text3);
+  text-align: center;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+}
+.login-hint span { color: var(--fox); }
+
+.btn-fox {
+  width: 100%;
+  padding: 10px;
+  background: var(--fox);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+  letter-spacing: 0.02em;
+}
+.btn-fox:hover { background: var(--fox-hover); }
+.btn-fox:active { transform: scale(.98); }
+
+.login-error {
+  font-size: 11px;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 10px;
+  min-height: 16px;
+}
+
+/* ── APP LAYOUT ──────────────────────────────── */
+#screen-app {
+  flex: 1;
+  display: none;
+  overflow: hidden;
+}
+
+.app-layout {
+  display: flex;
+  height: 100%;
+}
+
+/* ── MINI SIDEBAR (always visible strip) ──────── */
+.mini-sidebar {
+  width: var(--mini-w);
+  background: var(--fox);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.toggle-btn {
+  width: 30px; height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+  transition: background .2s;
+  color: #fff;
+  font-size: 16px;
+}
+.toggle-btn:hover { background: var(--fox-hover); }
+
+/* ── SIDEBAR ─────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--fox);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width .22s cubic-bezier(.4,0,.2,1);
+}
+.sidebar.collapsed { width: 0; }
+
+.sidebar-inner {
+  width: var(--sidebar-w);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 0 16px;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 4px;
+  padding: 0 14px;
+}
+
+.fox-icon {
+  width: 52px; height: 52px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.sidebar-username {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: var(--mono);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  margin: 2px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s;
+  color: rgba(255,255,255,0.85);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  text-align: left;
+  width: calc(100% - 20px);
+}
+.nav-btn:hover { background: rgba(0,0,0,0.15); color: #fff; }
+.nav-btn.active { background: rgba(0,0,0,0.25); color: #fff; font-weight: 700; }
+.nav-icon { font-size: 14px; width: 18px; text-align: center; flex-shrink: 0; }
+
+.sidebar-spacer { flex: 1; }
+
+.logout-btn {
+  margin: 0 12px;
+  padding: 9px;
+  background: rgba(211,47,47,0.85);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.logout-btn:hover { background: #b71c1c; }
+
+/* ── MAIN CONTENT ────────────────────────────── */
+.main-content {
+  flex: 1;
+  background: var(--bg2);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ── PAGES ───────────────────────────────────── */
+.page { display: none; padding: 28px 32px; animation: fadeUp .25s ease; }
+.page.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* page header */
+.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fox);
+}
+.page-sub { font-size: 12px; color: var(--text3); }
+
+/* ── STAT CARDS ──────────────────────────────── */
+.stat-row { display: flex; gap: 14px; margin-bottom: 22px; }
+.stat-card {
+  flex: 1;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; flex-direction: column;
+}
+.stat-card .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; opacity: .85; margin-bottom: 8px; }
+.stat-card .value { font-size: 34px; font-weight: 700; line-height: 1; }
+.card-purple { background: linear-gradient(135deg, #6d28d9, #7c3aed); }
+.card-orange { background: linear-gradient(135deg, #c2410c, var(--fox)); }
+.card-green  { background: linear-gradient(135deg, #15803d, #22c55e); }
+
+/* ── ACTIVITY ────────────────────────────────── */
+.section-box {
+  background: var(--bg3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.section-box-header {
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 11.5px;
+  color: var(--text2);
+}
+.activity-item:last-child { border-bottom: none; }
+.activity-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── CORRECTION PAGE ─────────────────────────── */
+.correction-layout { display: flex; gap: 16px; }
+.correction-left { flex: 1; }
+.correction-right { width: 220px; flex-shrink: 0; }
+
+.cfg-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.cfg-card-head {
+  padding: 11px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text3);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+
+.cfg-body { padding: 16px; }
+
+.cfg-field { margin-bottom: 12px; }
+.cfg-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 5px;
+}
+
+.demo-input-sm {
+  width: 100%;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  outline: none;
+  transition: border-color .2s;
+}
+.demo-input-sm:focus { border-color: var(--fox); }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--fox-dim);
+  border: 1px solid rgba(241,111,4,0.3);
+  color: var(--fox);
+  padding: 3px 9px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+.tag-x {
+  cursor: pointer;
+  color: rgba(241,111,4,0.6);
+  transition: color .15s;
+  line-height: 1;
+}
+.tag-x:hover { color: var(--fox); }
+
+.tag-input-row { display: flex; gap: 6px; margin-top: 6px; }
+.tag-input-row input {
+  flex: 1;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: var(--text);
+  font-size: 11.5px;
+  font-family: var(--mono);
+  outline: none;
+}
+.tag-input-row input:focus { border-color: var(--fox); }
+.tag-add-btn {
+  padding: 6px 12px;
+  background: var(--fox);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggle-row { display: flex; align-items: center; justify-content: space-between; }
+.toggle-switch {
+  width: 38px; height: 20px;
+  background: var(--bg4);
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: background .2s;
+  border: 1px solid var(--border);
+}
+.toggle-switch.on { background: var(--green); border-color: var(--green); }
+.toggle-knob {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left .2s;
+}
+.toggle-switch.on .toggle-knob { left: 20px; }
+
+/* files list */
+.file-list { display: flex; flex-direction: column; gap: 6px; }
+.file-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg4);
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-family: var(--mono);
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+.file-icon { font-size: 13px; }
+
+.btn-sm {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 7px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.btn-sm:hover { opacity: .85; }
+.btn-green { background: var(--green); color: #fff; }
+.btn-red   { background: var(--red);   color: #fff; }
+.btn-blue  { background: var(--blue);  color: #fff; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+
+.btn-row { display: flex; gap: 8px; margin-top: 14px; }
+
+/* ── STATS PAGE ──────────────────────────────── */
+.export-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 90px;
+  padding: 0 4px;
+}
+.bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  transition: height .4s ease;
+  min-width: 20px;
+}
+.bar-label { font-size: 9.5px; color: var(--text3); font-family: var(--mono); }
+
+.score-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.score-row:last-child { border-bottom: none; }
+.score-name { flex: 1; color: var(--text); font-family: var(--mono); }
+.score-bar-wrap {
+  width: 120px;
+  height: 7px;
+  background: var(--bg4);
+  border-radius: 50px;
+  overflow: hidden;
+}
+.score-bar-fill { height: 100%; border-radius: 50px; }
+.score-val { width: 35px; text-align: right; font-weight: 700; color: var(--text); }
+.score-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+.badge-ok  { background: rgba(40,167,69,0.2);  color: var(--green); }
+.badge-ko  { background: rgba(211,47,47,0.2);  color: var(--red); }
+.badge-mid { background: rgba(241,111,4,0.2);  color: var(--fox); }
+
+/* ── COMPARISON PAGE ─────────────────────────── */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.compare-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.compare-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text2);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.compare-code {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: #c9d1d9;
+  background: #0d0e10;
+  border-radius: 7px;
+  padding: 12px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.diff-add { color: #7ee787; }
+.diff-rm  { color: #ff7b72; }
+.sim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(211,47,47,0.15);
+  border: 1px solid rgba(211,47,47,0.3);
+  color: var(--red);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+/* ── TOAST ───────────────────────────────────── */
+.toast {
+  position: absolute;
+  bottom: 18px; right: 18px;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 11px 16px;
+  font-size: 12px;
+  color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all .25s;
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show { opacity: 1; transform: none; }
+.toast-icon { font-size: 14px; }
+
+/* ── DEMO BADGE ──────────────────────────────── */
+.demo-badge {
+  position: absolute;
+  top: 40px; right: 0;
+  background: rgba(241,111,4,0.9);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px 0 0 4px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  z-index: 50;
+}
+
+/* scrollbar */
+.main-content::-webkit-scrollbar { width: 5px; }
+.main-content::-webkit-scrollbar-track { background: transparent; }
+.main-content::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<div class="demo-shell" id="demoShell">
+  <!-- Titlebar -->
+  <div class="demo-titlebar">
+    <div class="titlebar-dot dot-red"></div>
+    <div class="titlebar-dot dot-yellow"></div>
+    <div class="titlebar-dot dot-green"></div>
+    <span class="titlebar-title">FoxCorrector — Bash Correction Tool</span>
+  </div>
+
+  <div class="demo-badge">DÉMO</div>
+
+  <!-- Body -->
+  <div class="demo-body">
+
+    <!-- ═══ LOGIN ══════════════════════════════ -->
+    <div id="screen-login" style="flex:1; display:flex; align-items:center; justify-content:center; background: radial-gradient(ellipse at 40% 40%, rgba(241,111,4,0.07) 0%, transparent 65%);">
+      <div class="login-box">
+        <div class="login-logo">
+          <div class="fox-logo-text">Fox<span>Corrector</span></div>
+          <div style="font-size:11px; color:var(--text3); margin-top:4px;">Bash Correction Tool</div>
+        </div>
+
+        <div class="tab-row">
+          <button class="tab-btn active" id="tabLoginBtn" onclick="switchTab('login')">Se connecter</button>
+          <button class="tab-btn" id="tabRegBtn" onclick="switchTab('register')">Créer un compte</button>
+        </div>
+
+        <div class="login-card">
+          <!-- Login panel -->
+          <div id="panelLogin">
+            <div class="login-hint">Identifiants démo : <span>admin</span> / <span>admin123</span></div>
+            <div class="field-label">USERNAME</div>
+            <input class="demo-input" id="loginUser" placeholder="Enter your username" value="admin">
+            <div class="field-label">PASSWORD</div>
+            <input class="demo-input" id="loginPass" placeholder="Enter your password" type="password" value="admin123">
+            <div class="login-error" id="loginError"></div>
+            <button class="btn-fox" onclick="doLogin()">Se connecter</button>
+          </div>
+
+          <!-- Register panel -->
+          <div id="panelRegister" style="display:none">
+            <div class="login-hint" style="margin-bottom:14px">Créez un compte pour explorer</div>
+            <div class="field-label">USERNAME</div>
+            <input class="demo-input" id="regUser" placeholder="Choisissez un identifiant">
+            <div class="field-label">PASSWORD</div>
+            <input class="demo-input" id="regPass" placeholder="Choisissez un mot de passe" type="password">
+            <div class="field-label">CONFIRMER</div>
+            <input class="demo-input" id="regConfirm" placeholder="Confirmer le mot de passe" type="password">
+            <div class="login-error" id="regError"></div>
+            <button class="btn-fox" onclick="doRegister()">Créer le compte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ APP ════════════════════════════════ -->
+    <div id="screen-app" style="flex:1; display:none; overflow:hidden;">
+      <div class="app-layout">
+
+        <!-- Mini sidebar -->
+        <div class="mini-sidebar">
+          <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()" title="Toggle sidebar">☰</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="sidebar-logo">
+              <div class="fox-icon">🦊</div>
+              <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:2px;">FoxCorrector</div>
+            </div>
+            <div class="sidebar-username" id="sidebarUser">admin</div>
+
+            <button class="nav-btn active" id="nav-dashboard" onclick="showPage('dashboard')">
+              <span class="nav-icon">⊞</span> Dashboard
+            </button>
+            <button class="nav-btn" id="nav-statistics" onclick="showPage('statistics')">
+              <span class="nav-icon">📊</span> Statistics
+            </button>
+            <button class="nav-btn" id="nav-correction" onclick="showPage('correction')">
+              <span class="nav-icon">⚙</span> Correction
+            </button>
+            <button class="nav-btn" id="nav-comparison" onclick="showPage('comparison')">
+              <span class="nav-icon">⇄</span> Comparison
+            </button>
+
+            <div class="sidebar-spacer"></div>
+            <button class="logout-btn" onclick="doLogout()">⏻ Logout</button>
+          </div>
+        </div>
+
+        <!-- Main -->
+        <div class="main-content" id="mainContent">
+
+          <!-- DASHBOARD -->
+          <div class="page active" id="page-dashboard">
+            <div class="page-header">
+              <div class="page-title">Main Dashboard</div>
+              <div class="page-sub" id="dashWelcome">Welcome, admin!</div>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat-card card-purple">
+                <div class="label">Total</div>
+                <div class="value" id="statTotal">42</div>
+              </div>
+              <div class="stat-card card-orange">
+                <div class="label">Pending</div>
+                <div class="value" id="statPending">7</div>
+              </div>
+              <div class="stat-card card-green">
+                <div class="label">Validated</div>
+                <div class="value" id="statValid">35</div>
+              </div>
+            </div>
+
+            <div class="section-box">
+              <div class="section-box-header">Recent Activity</div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--green)"></div>
+                [2025-06-01 14:32] Correction lancée — TP_Boucles (18 étudiants)
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--fox)"></div>
+                [2025-05-28 10:15] Nouvelle config créée — TP_Fonctions
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--blue)"></div>
+                [2025-05-25 16:47] Export PDF — TP_Variables (24 étudiants)
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--green)"></div>
+                [2025-05-20 09:03] Correction lancée — TP_Variables (24 étudiants)
+              </div>
+            </div>
+          </div>
+
+          <!-- CORRECTION CONFIG -->
+          <div class="page" id="page-correction">
+            <div class="page-header">
+              <div class="page-title">Correction</div>
+              <div class="page-sub">Configurez et lancez une correction</div>
+            </div>
+
+            <div class="correction-layout">
+              <div class="correction-left">
+
+                <!-- Config name -->
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Configuration</div>
+                  <div class="cfg-body">
+                    <div class="cfg-field">
+                      <div class="cfg-label">NOM DE LA CORRECTION</div>
+                      <input class="demo-input-sm" id="cfgName" value="TP_Boucles_S2" placeholder="ex: TP_Variables">
+                    </div>
+                    <div class="cfg-field">
+                      <div class="cfg-label">NOM DU FICHIER ATTENDU</div>
+                      <input class="demo-input-sm" id="cfgFile" value="tp_boucles.sh" placeholder="ex: tp1.sh">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Keywords -->
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Mots-clés attendus (sortie)</div>
+                  <div class="cfg-body">
+                    <div class="cfg-label">Mots-clés à trouver dans la sortie du script :</div>
+                    <div class="tag-row" id="keywordTags">
+                      <span class="tag">Bonjour <span class="tag-x" onclick="removeTag(this,'keyword')">×</span></span>
+                      <span class="tag">Total: <span class="tag-x" onclick="removeTag(this,'keyword')">×</span></span>
+                      <span class="tag">Fin <span class="tag-x" onclick="removeTag(this,'keyword')">×</span></span>
+                    </div>
+                    <div class="tag-input-row">
+                      <input type="text" id="kwInput" placeholder="Ajouter un mot-clé..." onkeydown="if(event.key==='Enter')addTag('keyword')">
+                      <button class="tag-add-btn" onclick="addTag('keyword')">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Structures -->
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Structures de code</div>
+                  <div class="cfg-body">
+                    <div class="cfg-label">Structures Bash à trouver dans le code :</div>
+                    <div class="tag-row" id="structTags">
+                      <span class="tag">for <span class="tag-x" onclick="removeTag(this,'struct')">×</span></span>
+                      <span class="tag">while <span class="tag-x" onclick="removeTag(this,'struct')">×</span></span>
+                      <span class="tag">echo <span class="tag-x" onclick="removeTag(this,'struct')">×</span></span>
+                    </div>
+                    <div class="tag-input-row">
+                      <input type="text" id="structInput" placeholder="ex: if, for, while..." onkeydown="if(event.key==='Enter')addTag('struct')">
+                      <button class="tag-add-btn" onclick="addTag('struct')">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Options -->
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Options</div>
+                  <div class="cfg-body">
+                    <div class="toggle-row" style="margin-bottom:14px">
+                      <div>
+                        <div style="font-size:12.5px; font-weight:600;">Détection de plagiat</div>
+                        <div style="font-size:11px; color:var(--text3);">Comparaison inter-étudiants</div>
+                      </div>
+                      <div class="toggle-switch on" id="plagToggle" onclick="togglePlag()">
+                        <div class="toggle-knob"></div>
+                      </div>
+                    </div>
+                    <div class="toggle-row">
+                      <div>
+                        <div style="font-size:12.5px; font-weight:600;">Timeout d'exécution</div>
+                        <div style="font-size:11px; color:var(--text3);">Limite par script (Docker)</div>
+                      </div>
+                      <input class="demo-input-sm" style="width:80px; text-align:center;" value="10s" readonly>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right: files -->
+              <div class="correction-right">
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Fichiers étudiants</div>
+                  <div class="cfg-body">
+                    <div class="cfg-label" style="margin-bottom:8px">Scripts chargés :</div>
+                    <div class="file-list">
+                      <div class="file-item"><span class="file-icon">📄</span>etudiant_01.sh</div>
+                      <div class="file-item"><span class="file-icon">📄</span>etudiant_02.sh</div>
+                      <div class="file-item"><span class="file-icon">📄</span>etudiant_03.sh</div>
+                      <div class="file-item"><span class="file-icon">📄</span>etudiant_04.sh</div>
+                      <div class="file-item" style="color:var(--text3)"><span class="file-icon">📄</span>etudiant_05.sh</div>
+                    </div>
+                    <button class="btn-sm btn-outline" style="width:100%; margin-top:10px;" onclick="showToast('📁 Chargement de fichiers désactivé en démo')">
+                      + Charger des fichiers
+                    </button>
+                  </div>
+                </div>
+
+                <div class="cfg-card">
+                  <div class="cfg-card-head">Lancer</div>
+                  <div class="cfg-body" style="text-align:center;">
+                    <div style="font-size:11px; color:var(--text3); margin-bottom:12px; line-height:1.5;">
+                      Docker requis pour exécuter les scripts dans un environnement isolé.
+                    </div>
+                    <button class="btn-sm btn-green" style="width:100%; padding:10px;" onclick="showToast('🐳 Docker non disponible en mode démo')">
+                      ▶ Lancer la correction
+                    </button>
+                    <button class="btn-sm btn-blue" style="width:100%; margin-top:8px;" onclick="showPage('statistics')">
+                      📊 Voir les résultats
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STATISTICS -->
+          <div class="page" id="page-statistics">
+            <div class="page-header">
+              <div class="page-title">Correction Statistics</div>
+              <div class="page-sub">TP_Boucles — 18 étudiants</div>
+            </div>
+
+            <!-- Export -->
+            <div class="cfg-card" style="margin-bottom:14px">
+              <div class="cfg-card-head">Export des résultats</div>
+              <div class="cfg-body">
+                <div class="export-row">
+                  <span style="font-size:12px; color:var(--text2);">Format :</span>
+                  <button class="btn-sm btn-red" onclick="showToast('📄 Export PDF simulé en démo')">Export PDF</button>
+                  <button class="btn-sm btn-green" onclick="showToast('📊 Export CSV simulé en démo')">Export CSV</button>
+                  <span style="font-size:11px; color:var(--text3); margin-left:4px;">
+                    <i>reportlab requis pour PDF</i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Distribution bar chart -->
+            <div class="cfg-card" style="margin-bottom:14px">
+              <div class="cfg-card-head">Distribution des scores</div>
+              <div class="cfg-body">
+                <div class="chart-bars" id="chartBars"></div>
+              </div>
+            </div>
+
+            <!-- Scores per student -->
+            <div class="section-box">
+              <div class="section-box-header">Résultats par étudiant</div>
+              <div style="padding: 8px 18px;" id="scoreList"></div>
+            </div>
+          </div>
+
+          <!-- COMPARISON -->
+          <div class="page" id="page-comparison">
+            <div class="page-header">
+              <div class="page-title">Comparison</div>
+              <div class="page-sub">Détection de similitudes entre soumissions</div>
+            </div>
+
+            <div style="margin-bottom:14px; display:flex; align-items:center; gap:10px;">
+              <div class="sim-badge">⚠ Similarité détectée : 87%</div>
+              <span style="font-size:11.5px; color:var(--text3);">etudiant_02.sh ↔ etudiant_05.sh</span>
+            </div>
+
+            <div class="comparison-grid">
+              <div class="compare-card">
+                <div class="compare-title">etudiant_02.sh</div>
+                <pre class="compare-code">#!/bin/bash
+echo "Bonjour"
+total=0
+for i in 1 2 3 4 5; do
+  total=$((total + i))
+done
+echo "Total: $total"
+echo "Fin"</pre>
+              </div>
+              <div class="compare-card">
+                <div class="compare-title">etudiant_05.sh</div>
+                <pre class="compare-code">#!/bin/bash
+echo "Bonjour"
+total=0
+<span class="diff-add">compteur=0</span>
+for i in 1 2 3 4 5; do
+  total=$((total + i))
+  <span class="diff-add">compteur=$((compteur+1))</span>
+done
+echo "Total: $total"
+echo "Fin"</pre>
+              </div>
+            </div>
+
+            <div style="margin-top:20px">
+              <div class="cfg-card">
+                <div class="cfg-card-head">Autres paires analysées</div>
+                <div class="cfg-body">
+                  <div class="score-row">
+                    <span class="score-name">etudiant_01 ↔ etudiant_03</span>
+                    <div class="score-bar-wrap"><div class="score-bar-fill" style="width:23%; background:var(--green)"></div></div>
+                    <span class="score-val">23%</span>
+                    <span class="score-badge badge-ok">OK</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-name">etudiant_01 ↔ etudiant_04</span>
+                    <div class="score-bar-wrap"><div class="score-bar-fill" style="width:41%; background:var(--fox)"></div></div>
+                    <span class="score-val">41%</span>
+                    <span class="score-badge badge-mid">Mid</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-name">etudiant_02 ↔ etudiant_05</span>
+                    <div class="score-bar-wrap"><div class="score-bar-fill" style="width:87%; background:var(--red)"></div></div>
+                    <span class="score-val">87%</span>
+                    <span class="score-badge badge-ko">⚠</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-name">etudiant_03 ↔ etudiant_04</span>
+                    <div class="score-bar-wrap"><div class="score-bar-fill" style="width:18%; background:var(--green)"></div></div>
+                    <span class="score-val">18%</span>
+                    <span class="score-badge badge-ok">OK</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /main-content -->
+      </div><!-- /app-layout -->
+    </div><!-- /screen-app -->
+
+  </div><!-- /demo-body -->
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon">ℹ</span>
+    <span id="toastMsg"></span>
+  </div>
+
+</div><!-- /demo-shell -->
+
+<script>
+// ── State ──────────────────────────────────────────────────────────
+let sidebarOpen = true;
+let currentUser = 'admin';
+let plagEnabled = true;
+
+const users = { admin: 'admin123' };
+
+// ── Login ──────────────────────────────────────────────────────────
+function switchTab(tab) {
+  document.getElementById('panelLogin').style.display    = tab === 'login'    ? 'block' : 'none';
+  document.getElementById('panelRegister').style.display = tab === 'register' ? 'block' : 'none';
+  document.getElementById('tabLoginBtn').className = 'tab-btn' + (tab === 'login' ? ' active' : '');
+  document.getElementById('tabRegBtn').className   = 'tab-btn' + (tab === 'register' ? ' active' : '');
+}
+
+function doLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if (users[u] && users[u] === p) {
+    currentUser = u;
+    launchApp(u);
+  } else {
+    const el = document.getElementById('loginError');
+    el.textContent = 'Identifiant ou mot de passe incorrect';
+    setTimeout(() => el.textContent = '', 2500);
+  }
+}
+
+function doRegister() {
+  const u = document.getElementById('regUser').value.trim();
+  const p = document.getElementById('regPass').value;
+  const c = document.getElementById('regConfirm').value;
+  const el = document.getElementById('regError');
+
+  if (!u || !p || !c)         return (el.textContent = 'Veuillez remplir tous les champs');
+  if (u.length < 3)           return (el.textContent = "L'identifiant doit faire ≥ 3 caractères");
+  if (p !== c)                return (el.textContent = 'Les mots de passe ne correspondent pas');
+  if (users[u])               return (el.textContent = `L'utilisateur '${u}' existe déjà`);
+
+  users[u] = p;
+  currentUser = u;
+  el.style.color = '#28A745';
+  el.textContent = `✓ Compte '${u}' créé !`;
+  setTimeout(() => launchApp(u), 700);
+}
+
+function launchApp(user) {
+  document.getElementById('screen-login').style.display = 'none';
+  document.getElementById('screen-app').style.display   = 'flex';
+  document.getElementById('sidebarUser').textContent    = user;
+  document.getElementById('dashWelcome').textContent    = `Welcome, ${user}!`;
+  buildStatPage();
+  showPage('dashboard');
+}
+
+function doLogout() {
+  document.getElementById('screen-app').style.display   = 'none';
+  document.getElementById('screen-login').style.display = 'flex';
+  document.getElementById('loginError').textContent = '';
+  document.getElementById('loginUser').value = 'admin';
+  document.getElementById('loginPass').value = 'admin123';
+}
+
+// ── Navigation ─────────────────────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+  document.getElementById('mainContent').scrollTop = 0;
+}
+
+// ── Sidebar ────────────────────────────────────────────────────────
+function toggleSidebar() {
+  sidebarOpen = !sidebarOpen;
+  document.getElementById('sidebar').classList.toggle('collapsed', !sidebarOpen);
+  document.getElementById('toggleBtn').textContent = sidebarOpen ? '☰' : '▶';
+}
+
+// ── Tags ───────────────────────────────────────────────────────────
+function addTag(type) {
+  const inputId  = type === 'keyword' ? 'kwInput' : 'structInput';
+  const containerId = type === 'keyword' ? 'keywordTags' : 'structTags';
+  const input = document.getElementById(inputId);
+  const val = input.value.trim();
+  if (!val) return;
+
+  const tag = document.createElement('span');
+  tag.className = 'tag';
+  tag.innerHTML = `${val} <span class="tag-x" onclick="removeTag(this,'${type}')">×</span>`;
+  document.getElementById(containerId).appendChild(tag);
+  input.value = '';
+  showToast(`✓ Mot-clé "${val}" ajouté`);
+}
+
+function removeTag(el) {
+  el.parentElement.remove();
+}
+
+// ── Plagiarism toggle ──────────────────────────────────────────────
+function togglePlag() {
+  plagEnabled = !plagEnabled;
+  const t = document.getElementById('plagToggle');
+  t.classList.toggle('on', plagEnabled);
+  showToast(plagEnabled ? '✓ Détection de plagiat activée' : '✗ Détection de plagiat désactivée');
+}
+
+// ── Stats page ─────────────────────────────────────────────────────
+const STUDENTS = [
+  { name: 'etudiant_01', kw: 100, st: 100 },
+  { name: 'etudiant_02', kw: 100, st:  67 },
+  { name: 'etudiant_03', kw:  67, st: 100 },
+  { name: 'etudiant_04', kw: 100, st: 100 },
+  { name: 'etudiant_05', kw:  33, st:  67 },
+  { name: 'etudiant_06', kw: 100, st: 100 },
+  { name: 'etudiant_07', kw:   0, st:  33 },
+  { name: 'etudiant_08', kw:  67, st: 100 },
+];
+
+function buildStatPage() {
+  // Bar chart
+  const bars = document.getElementById('chartBars');
+  const buckets = [
+    { label:'0-20',  count:1, color:'#dc2626' },
+    { label:'20-40', count:0, color:'#f97316' },
+    { label:'40-60', count:1, color:'#f59e0b' },
+    { label:'60-80', count:2, color:'#84cc16' },
+    { label:'80+',   count:4, color:'#22c55e' },
+  ];
+  bars.innerHTML = '';
+  const maxC = Math.max(...buckets.map(b => b.count));
+  buckets.forEach(b => {
+    const h = b.count ? Math.max(10, (b.count / maxC) * 75) : 3;
+    bars.innerHTML += `
+      <div class="bar-wrap">
+        <div class="bar" style="height:${h}px; background:${b.color}"></div>
+        <div class="bar-label">${b.label}</div>
+      </div>`;
+  });
+
+  // Score list
+  const list = document.getElementById('scoreList');
+  list.innerHTML = '';
+  STUDENTS.forEach(s => {
+    const avg = Math.round((s.kw + s.st) / 2);
+    const color = avg >= 70 ? 'var(--green)' : avg >= 40 ? 'var(--fox)' : 'var(--red)';
+    const badge = avg >= 70 ? '<span class="score-badge badge-ok">✓</span>'
+                : avg >= 40 ? '<span class="score-badge badge-mid">~</span>'
+                :             '<span class="score-badge badge-ko">✗</span>';
+    list.innerHTML += `
+      <div class="score-row">
+        <span class="score-name">${s.name}</span>
+        <div class="score-bar-wrap">
+          <div class="score-bar-fill" style="width:${avg}%; background:${color}"></div>
+        </div>
+        <span class="score-val">${avg}%</span>
+        ${badge}
+      </div>`;
+  });
+}
+
+// ── Toast ──────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// Keyboard: enter on login
+document.getElementById('loginPass')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+</script>
+</body>
+</html>

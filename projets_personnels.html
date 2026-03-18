@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projets Personnels - Portfolio</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Léon Chacornac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a_propos.html">À propos</a></li>
+                    
+                    <!-- Menu déroulant "Projets" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projets
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="projets_personnels.html">Projets personnels</a></li>
+                            <li><a class="dropdown-item" href="projets_academiques.html">Projets académiques</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+<div class="container main-container">
+    <h2 class="text-center display-4 mb-5 animated" style="animation-delay: 0.2s;">Projets Personnels</h2>
+
+    <!-- Trophée NSI -->
+    <section class="my-5 animated" style="animation-delay: 0.4s;">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <span class="award-badge">
+                    <i class="fas fa-trophy me-2"></i>Prix Sport Montpellier 2024
+                </span>
+                <h3 class="mb-3">Trophée NSI - VolleyBall Scoring</h3>
+                <p>
+                    Pendant mon année de Terminal j'ai eu la chance de participer au concours <b>Trophée NSI</b>, en cette année de 2024 le thème du concours était le sport car la France accueillait les JO quelques mois plus tard.
+                </p>
+                <p>
+                    Mon projet a été de <b>créer un compteur de score pour le volleyball</b> qui respecte toutes les règles et qui est fonctionnel. J'ai au départ réalisé ce projet pour pouvoir diffuser en direct un match de volleyball tout en pouvant changer le score facilement (vous pourrez retrouver un des matchs sur la chaine Youtube de l'IMCA Provence).
+                </p>
+                <p>
+                    J'ai utilisé le langage Python pour réaliser ce projet et il est possible de le lier à une application de diffusion en direct comme OBS car lorsque l'on modifie le score cela modifie un fichier texte contenant le score puis l'enregistre ce qui permet ensuite à l'application de diffusion de récupérer ce que contient le fichier texte.
+                </p>
+                <div class="d-flex mt-4">
+                    <span class="project-tech me-2">
+                        <i class="fab fa-python me-1"></i>Python
+                    </span>
+                    <a href="https://tube-sciences-technologies.apps.education.fr/w/5M5JWotQsYP16WZhsnu5jr" target="_blank" class="btn btn-sm btn-primary ms-2">
+                        <i class="fas fa-play me-1"></i>Voir la vidéo
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <img src="Image/TrophéNSI.png" class="img-fluid rounded mx-auto d-block" alt="Trophée NSI">
+            </div>
+        </div>
+    </section>
+
+    <!-- Dev'Art -->
+    <section class="my-5 animated" style="animation-delay: 0.6s;">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <span class="award-badge">
+                    <i class="fas fa-award me-2"></i>Coup de cœur des étudiants 2025
+                </span>
+                <h3 class="mb-3">Dev'Art - Anna's Resilience</h3>
+                <p>
+                    Pendant la première année de BUT Informatique nous avons pu, moi et deux amis participer au concours <b>Dev'art</b> qui a pour principe de donner un thème aléatoire et plutôt large pour pouvoir ensuite créer un jeu, une vidéo... et tout cela en <b>32h</b> !
+                </p>
+                <p>
+                    Le thème était la résilience, nous avons donc créer un jeu qui illustre la résilience par le fait qu'à chaque mort dans le jeu on recommence mais plus fort !
+                </p>
+                <p>
+                    Pour créer ce jeu nous avons utilisé Godot, je me suis plus personnellement occupé de la création du personnage et de tous les décors ainsi que les collisions.
+                </p>
+                <span class="project-tech">
+                    <i class="fas fa-gamepad me-1"></i>Godot
+                </span>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0 order-lg-1">
+                <img src="Image/Dev'art.png" class="img-fluid rounded mx-auto d-block" alt="Dev'Art">
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="text-center py-3 mt-auto">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/Yuu0210" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/leon.chac?igsh=MW54a2Z4Mmh3NDltcg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ChacornacL22604" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="mt-3">© 2025 Léon Chacornac - Tous droits réservés</p>
+    </div>
+</footer>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

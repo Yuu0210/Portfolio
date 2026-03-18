@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoL Typing Test</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #ccc;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button:hover { background: #2a2a2a !important; }
+
+.demo-shell {
+  width: 100%;
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  overflow: hidden;
+}
+
+.demo-titlebar {
+  height: 32px;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #222;
+}
+.titlebar-dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green  { background: #28c840; }
+.titlebar-title { font-family: monospace; font-size: 11px; color: #444; margin-left: 10px; }
+
+#root {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.app-container {
+  background: #111;
+  border-radius: 0px;
+  padding: 2rem;
+  border: 1px solid #333;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ccc;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.05em;
+}
+
+.timer-wrap { margin-bottom: 1.5rem; text-align: center; }
+.timer-number { font-size: 2.5rem; font-weight: bold; letter-spacing: 0.05em; }
+.timer-hint { color: #6b7a99; font-size: 0.85rem; margin-top: 0.25rem; }
+
+.word-display {
+  background: #1a1a1a;
+  border-radius: 0px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  line-height: 2.2;
+  font-size: 1.15rem;
+  min-height: 6rem;
+  border: 1px solid #333;
+}
+
+.input-area { display: flex; gap: 0.75rem; align-items: center; }
+.game-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  background: #1a1a1a;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 0px;
+  outline: none;
+}
+.game-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.input-hint { color: #555; font-size: 0.8rem; white-space: nowrap; }
+
+.results-wrap { margin-top: 1.5rem; background: #1a1a1a; padding: 1.25rem; border: 1px solid #333; }
+.results-title { color: #ccc; margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: bold; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.stat-card { background: #111; padding: 0.75rem; text-align: center; border: 1px solid #333; }
+.stat-value { font-size: 1.8rem; font-weight: bold; }
+.stat-label { font-size: 0.75rem; color: #666; margin-top: 0.2rem; }
+.restart-btn {
+  padding: 0.5rem 1.2rem;
+  background: #222;
+  color: #ccc;
+  border: 1px solid #444;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.status-bar {
+  height: 22px;
+  background: #0a0a0a;
+  border-top: 1px solid #222;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.status-item { font-family: monospace; font-size: 10px; color: #444; display: flex; align-items: center; gap: 5px; }
+.s-dot { width: 5px; height: 5px; border-radius: 50%; }
+.s-green { background: #2ecc71; }
+.s-blue  { background: #4a90d9; }
+</style>
+</head>
+<body>
+<div class="demo-shell">
+  <div class="demo-titlebar">
+    <div class="titlebar-dot dot-red"></div>
+    <div class="titlebar-dot dot-yellow"></div>
+    <div class="titlebar-dot dot-green"></div>
+    <span class="titlebar-title">lol-typing-test — vite dev server</span>
+  </div>
+
+  <div id="root">
+    <div class="app-container">
+      <h1 class="app-title">LoL Typing Test</h1>
+      <div class="timer-wrap">
+        <div class="timer-number" id="timer-number">01:00</div>
+        <p class="timer-hint" id="timer-hint">La partie commence au premier caractere saisi</p>
+      </div>
+      <div class="word-display" id="word-display"></div>
+      <div class="input-area">
+        <input type="text" class="game-input" id="game-input"
+          placeholder="Tapez le mot affiche..."
+          autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+        <span class="input-hint">Espace pour valider</span>
+      </div>
+      <div id="results-container"></div>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-item"><div class="s-dot s-green"></div>React 18</div>
+    <div class="status-item"><div class="s-dot s-blue"></div>useReducer + Context</div>
+  </div>
+</div>
+
+<script>
+const REFERENCE_TEXT = "Par son dévouement inébranlable envers Ionia, Yunara a passé des siècles retirée dans le royaume spirituel pour perfectionner sa maîtrise des Aion Er'na, une relique légendaire du Kinkou. Malgré tous les sacrifices qu'elle a accomplis, Yunara a su garder la foi et conserver son objectif";
+const GAME_DURATION = 60;
+const WORD_STATUS = { PENDING:"pending", CORRECT:"correct", INCORRECT:"incorrect", CURRENT:"current" };
+const STATUS_COLORS = { pending:"#666", correct:"#2ecc71", incorrect:"#e74c3c", current:"#eee" };
+const ACTIONS = { START_TIMER:"START_TIMER", TICK:"TICK", INPUT_CHANGE:"INPUT_CHANGE", NEXT_WORD:"NEXT_WORD", RESTART:"RESTART" };
+
+function buildInitialWords(text) {
+  return text.split(" ").map(word => ({ expected: word, status: WORD_STATUS.PENDING }));
+}
+function getInitialState() {
+  const words = buildInitialWords(REFERENCE_TEXT);
+  words[0] = { ...words[0], status: WORD_STATUS.CURRENT };
+  return { words, currentIndex:0, currentInput:"", timeLeft:GAME_DURATION, timerStarted:false, gameOver:false, history:[] };
+}
+function endGame(state, timeLeft) {
+  const correctWords   = state.words.filter(w => w.status === WORD_STATUS.CORRECT).length;
+  const incorrectWords = state.words.filter(w => w.status === WORD_STATUS.INCORRECT).length;
+  const charsEntered   = state.words.filter(w => w.status === WORD_STATUS.CORRECT || w.status === WORD_STATUS.INCORRECT).reduce((acc,w) => acc + w.expected.length, 0);
+  const timeElapsed = GAME_DURATION - timeLeft;
+  const wpm = timeElapsed > 0 ? Math.round((correctWords / timeElapsed) * 60) : 0;
+  return { ...state, timeLeft, gameOver:true, currentInput:"", currentIndex:state.words.length, history:[{correctWords,incorrectWords,charsEntered,wpm,timeElapsed},...state.history] };
+}
+function gameReducer(state, action) {
+  switch(action.type) {
+    case ACTIONS.START_TIMER: return { ...state, timerStarted:true };
+    case ACTIONS.TICK: { const t = state.timeLeft - 1; return t <= 0 ? endGame(state,0) : { ...state, timeLeft:t }; }
+    case ACTIONS.INPUT_CHANGE: return { ...state, currentInput:action.payload };
+    case ACTIONS.NEXT_WORD: {
+      const { words, currentIndex, currentInput } = state;
+      const isCorrect = currentInput.trim() === words[currentIndex].expected;
+      const updatedWords = words.map((w,i) => {
+        if (i === currentIndex) return { ...w, status: isCorrect ? WORD_STATUS.CORRECT : WORD_STATUS.INCORRECT };
+        if (i === currentIndex+1) return { ...w, status: WORD_STATUS.CURRENT };
+        return w;
+      });
+      const nextIndex = currentIndex + 1;
+      if (nextIndex >= words.length) return endGame({ ...state, words:updatedWords }, state.timeLeft);
+      return { ...state, words:updatedWords, currentIndex:nextIndex, currentInput:"" };
+    }
+    case ACTIONS.RESTART: { const fresh = getInitialState(); return { ...fresh, history:state.history }; }
+    default: return state;
+  }
+}
+
+let state = getInitialState();
+let intervalId = null;
+
+function dispatch(action) {
+  state = gameReducer(state, action);
+  render();
+}
+
+function render() {
+  // Timer
+  const { timeLeft, timerStarted, gameOver } = state;
+  const color = timeLeft <= 10 ? "#e74c3c" : timeLeft <= 20 ? "#f39c12" : "#ccc";
+  const mins = String(Math.floor(timeLeft/60)).padStart(2,"0");
+  const secs = String(timeLeft%60).padStart(2,"0");
+  document.getElementById("timer-number").textContent = `${mins}:${secs}`;
+  document.getElementById("timer-number").style.color = color;
+  document.getElementById("timer-hint").style.display = (!timerStarted && !gameOver) ? "block" : "none";
+
+  // WordDisplay
+  const { words, currentIndex, currentInput } = state;
+  let html = "";
+  words.forEach((word, idx) => {
+    if (idx === currentIndex) {
+      let charHtml = "";
+      word.expected.split("").forEach((char, ci) => {
+        let charColor;
+        if (ci < currentInput.length) {
+          charColor = currentInput[ci] === char ? "#2ecc71" : "#e74c3c";
+        } else if (ci === currentInput.length) {
+          charColor = "#eee";
+        } else {
+          charColor = "#666";
+        }
+        const ub = ci === currentInput.length ? "border-bottom:2px solid #eee;" : "";
+        const safe = char==="<"?"&lt;":char===">"?"&gt;":char==="&"?"&amp;":char;
+        charHtml += `<span style="color:${charColor};${ub}">${safe}</span>`;
+      });
+      html += `<span style="position:relative">${charHtml} </span>`;
+    } else {
+      const c = STATUS_COLORS[word.status];
+      const d = word.status === WORD_STATUS.INCORRECT ? "text-decoration:underline wavy #e74c3c;" : "";
+      html += `<span style="color:${c};${d}">${word.expected} </span>`;
+    }
+  });
+  document.getElementById("word-display").innerHTML = html;
+
+  // Input sync
+  const inputEl = document.getElementById("game-input");
+  if (inputEl.value !== state.currentInput) inputEl.value = state.currentInput;
+  inputEl.disabled = state.gameOver;
+  inputEl.placeholder = state.gameOver ? "Partie terminee" : "Tapez le mot affiche...";
+  if (!state.gameOver) inputEl.focus();
+
+  // Results
+  const container = document.getElementById("results-container");
+  if (!state.gameOver || state.history.length === 0) {
+    container.innerHTML = "";
+    return;
+  }
+  const r = state.history[0];
+  container.innerHTML = `
+    <div class="results-wrap">
+      <h2 class="results-title">Resultats</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-value" style="color:#2ecc71">${r.correctWords}</div><div class="stat-label">Mots corrects</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#e74c3c">${r.incorrectWords}</div><div class="stat-label">Mots incorrects</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#aaa">${r.charsEntered}</div><div class="stat-label">Caracteres</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#aaa">${r.wpm}</div><div class="stat-label">WPM</div></div>
+      </div>
+      <button class="restart-btn" onclick="handleRestart()">Rejouer</button>
+    </div>`;
+}
+
+function handleInputChange(value) {
+  if (!state.timerStarted && value.length > 0) {
+    dispatch({ type: ACTIONS.START_TIMER });
+    intervalId = setInterval(() => dispatch({ type: ACTIONS.TICK }), 1000);
+  }
+  dispatch({ type: ACTIONS.INPUT_CHANGE, payload: value });
+}
+
+function handleNextWord() { dispatch({ type: ACTIONS.NEXT_WORD }); }
+
+function handleRestart() {
+  clearInterval(intervalId);
+  intervalId = null;
+  dispatch({ type: ACTIONS.RESTART });
+}
+
+const inputEl = document.getElementById("game-input");
+inputEl.addEventListener("input", e => {
+  if (state.gameOver) return;
+  const value = e.target.value;
+  if (!value.includes(" ")) {
+    handleInputChange(value);
+  } else {
+    e.target.value = value.replace(" ", "");
+  }
+});
+inputEl.addEventListener("keydown", e => {
+  if (state.gameOver) return;
+  if (e.key === " " || e.key === "Enter") {
+    e.preventDefault();
+    if (state.currentInput.trim().length > 0) {
+      handleNextWord();
+      inputEl.value = "";
+    }
+  }
+});
+
+render();
+inputEl.focus();
+</script>
+</body>
+</html>

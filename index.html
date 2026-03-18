@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio - Léon Chacornac</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Conteneur principal -->
+<div class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Léon Chacornac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a_propos.html">À propos</a></li>
+                    
+                    <!-- Menu déroulant "Projets" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projets
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="projets_personnels.html">Projets personnels</a></li>
+                            <li><a class="dropdown-item" href="projets_academiques.html">Projets académiques</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container main-container d-flex flex-column align-items-center">
+        <!-- Texte centré -->
+        <div class="text-center animated" style="animation-delay: 0.2s;">
+            <h1 class="display-4">Bienvenue sur mon Portfolio</h1>
+            <p class="lead">Découvrez mes projets personnels et académiques en informatique.</p>
+        </div>
+    
+        <!-- Carrousel placé en dessous et aligné -->
+        <div id="carouselExample" class="carousel slide w-75 mx-auto mt-5 animated" data-bs-ride="carousel" style="animation-delay: 0.4s;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="a_propos.html">
+                        <img src="Image/CV2.png" class="d-block w-100" alt="À Propos">
+                    </a>
+                    <div class="carousel-caption">
+                        <h5>À Propos</h5>
+                        <p>En savoir plus sur mon parcours et mes compétences</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="projets_personnels.html">
+                        <div class="d-flex justify-content-center">
+                            <img src="Image/Dev'art.png" class="w-50" alt="Image 1">
+                            <img src="Image/TrophéNSI.png" class="w-50" alt="Image 2">
+                        </div>
+                    </a>
+                    <div class="carousel-caption">
+                        <h5>Projets Personnels</h5>
+                        <p>Découvrez mes initiatives et réalisations personnelles</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="projets_academiques.html">
+                        <div class="d-flex justify-content-center">
+                            <img src="Image/Agenda.png" class="w-50" alt="Image 1">
+                            <img src="Image/Poly.png" class="w-50" alt="Image 2">
+                        </div>
+                    </a>
+                    <div class="carousel-caption">
+                        <h5>Projets Académiques</h5>
+                        <p>Explorez mes travaux réalisés durant ma formation</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+        
+        <!-- Boutons d'action -->
+        <div class="mt-5 text-center animated" style="animation-delay: 0.6s;">
+            <a href="contact.html" class="btn btn-primary me-3">
+                <i class="fas fa-envelope me-2"></i>Me contacter
+            </a>
+            <a href="a_propos.html" class="btn btn-outline-light">
+                <i class="fas fa-user me-2"></i>En savoir plus
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Footer en bas -->
+    <footer class="text-center py-3 mt-auto">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/Yuu0210" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/leon.chac?igsh=MW54a2Z4Mmh3NDltcg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/ChacornacL22604" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="mt-3">© 2025 Léon Chacornac - Tous droits réservés</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
